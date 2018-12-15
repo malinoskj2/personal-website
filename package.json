@@ -7,6 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "author": "Jesse Malinosky",
+  "license": "BSD-2-Clause",
   "dependencies": {
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
