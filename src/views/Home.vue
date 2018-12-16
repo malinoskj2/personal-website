@@ -54,7 +54,7 @@ export default {
 <style>
 
   .j-big-content {
-    height: 46rem;
+    height: 40rem;
   }
 
   .fade-in {

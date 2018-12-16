@@ -62,18 +62,19 @@ export default {
   .inner-rect {
     position:relative;
     fill: #393d3f;
-    width: 94%;
+    width: 40%;
     height: 88%;
     border-radius: 25px;
     z-index: 1;
   }
 
   .root {
+    font-size: 90%;
     z-index: -100;
     positon: absolute;
     overflow: hidden;
-    width: 16rem;
-    height: 3rem;
+    width: 14rem;
+    height: 2.5rem;
     background-color: #444054;
 
     box-shadow: 0 10px 6px -6px #777;
