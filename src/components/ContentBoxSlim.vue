@@ -56,10 +56,8 @@ export default {
     fill: #393d3f;
     width: 94%;
     height: 88%;
-    padding: .5rem;
     border-radius: 25px;
     z-index: 1;
-
   }
 
   .root {
@@ -72,7 +70,6 @@ export default {
 
     box-shadow: 0 10px 6px -6px #777;
     border-radius: 5px;
-
   }
 
   /* Button focus events */

@@ -1,11 +1,31 @@
 <template>
   <div class="home">
 
-    <div>
-      <ContentBoxSlim class="content-box"
-        v-for="(item,index) in mediaLinks" :key="index"
-        :link="item" :index="index"></ContentBoxSlim>
-    </div>
+          <div class="container">
+
+            <section class="hero j-big-content">
+              <div class="hero-body">
+                <div class="container">
+                  <h1 class="title">
+                    Hero title
+                  </h1>
+                  <h2 class="subtitle">
+                    Hero subtitle
+                  </h2>
+                </div>
+              </div>
+            </section>
+
+            <div class="columns is-centered">
+              <div class="column has-text-centered" v-for="(item,index) in mediaLinks" :key="index">
+                <ContentBoxSlim class="content-box"
+                                :link="item" :index="index">
+                </ContentBoxSlim>
+              </div>
+
+            </div>
+          </div>
+
 
   </div>
 </template>
@@ -33,14 +53,8 @@ export default {
 </script>
 <style>
 
-  .home {
-    margin: 2rem;
+  .j-big-content {
+    height: 46rem;
   }
-
-  .content-box {
-    margin: 2rem;
-
-  }
-
 
 </style>
