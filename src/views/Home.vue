@@ -3,18 +3,7 @@
 
           <div class="container">
 
-            <section class="hero j-big-content">
-              <div class="hero-body">
-                <div class="container">
-                  <h1 class="title">
-                    Hero title
-                  </h1>
-                  <h2 class="subtitle">
-                    Hero subtitle
-                  </h2>
-                </div>
-              </div>
-            </section>
+            <HeroTitle></HeroTitle>
 
             <div class="columns is-centered fade-in">
               <div class="column has-text-centered" v-for="(item,index) in mediaLinks" :key="index">
@@ -33,11 +22,13 @@
 <script>
 // @ is an alias to /src
 import ContentBoxSlim from '@/components/ContentBoxSlim.vue';
+import HeroTitle from '@/components/HeroTitle.vue';
 
 export default {
   name: 'home',
   components: {
     ContentBoxSlim,
+    HeroTitle,
   },
 
 
@@ -52,10 +43,6 @@ export default {
 };
 </script>
 <style>
-
-  .j-big-content {
-    height: 40rem;
-  }
 
   .fade-in {
     -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
