@@ -3,7 +3,7 @@
 
           <div class="container">
 
-            <HeroTitle></HeroTitle>
+           <router-view></router-view>
 
             <div class="columns is-centered fade-in">
               <div class="column has-text-centered" v-for="(item,index) in mediaLinks" :key="index">
@@ -22,13 +22,11 @@
 <script>
 // @ is an alias to /src
 import ContentBoxSlim from '@/components/ContentBoxSlim.vue';
-import HeroTitle from '@/components/HeroTitle.vue';
 
 export default {
   name: 'home',
   components: {
     ContentBoxSlim,
-    HeroTitle,
   },
 
 
