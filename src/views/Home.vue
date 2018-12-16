@@ -3,7 +3,7 @@
 
           <div class="container">
            <router-view name="a"></router-view>
-           <router-view name="b"></router-view>
+           <router-view name="b" class="fade-in"></router-view>
           </div>
 
   </div>
