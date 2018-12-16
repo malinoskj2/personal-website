@@ -1,14 +1,15 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+import Projects from '@/views/Projects.vue';
+import Home from '@/views/Home.vue';
+import HeroTitle from '@/components/HeroTitle.vue';
+import NavButtonRow from '@/components/NavButtonRow.vue';
+
 Vue.use(Router);
 
-// Views
-const Projects = () => import('@/views/Projects');
-const Home = () => import('@/views/Home');
 
-// Components
-const HeroTitle = () => import('@/components/HeroTitle');
+// Component
 
 export default new Router({
   routes: [
@@ -17,11 +18,16 @@ export default new Router({
       name: 'home',
       component: Home,
       children: [
+
         {
           path: '',
-          name: 'HeroTitle',
-          component: HeroTitle,
+          name: 'MainHomeView',
+          components: {
+            a: HeroTitle,
+            b: NavButtonRow,
+          },
         },
+
       ],
     },
     {

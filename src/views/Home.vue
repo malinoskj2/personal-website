@@ -2,41 +2,22 @@
   <div class="home">
 
           <div class="container">
-
-           <router-view></router-view>
-
-            <div class="columns is-centered fade-in">
-              <div class="column has-text-centered" v-for="(item,index) in mediaLinks" :key="index">
-                <ContentBoxSlim class="content-box"
-                                :link="item" :index="index">
-                </ContentBoxSlim>
-              </div>
-
-            </div>
+           <router-view name="a"></router-view>
+           <router-view name="b"></router-view>
           </div>
-
 
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import ContentBoxSlim from '@/components/ContentBoxSlim.vue';
 
 export default {
   name: 'home',
   components: {
-    ContentBoxSlim,
   },
 
-
   computed: {
-    mediaLinks() {
-      return this.$store.getters.getLinks;
-    },
-    getALink() {
-      return this.$store.getters.getLinks[0];
-    },
   },
 };
 </script>
