@@ -1,5 +1,6 @@
 <template>
   <div class="root"
+       @click="goToUrl"
        @mouseover="toggleActive"
         @mouseout="toggleActive"
          :class="getActiveClass"
@@ -39,6 +40,13 @@ export default {
   methods: {
     toggleActive() {
       this.isActive = !this.isActive;
+    },
+    goToUrl() {
+      if (this.link.url.substring(0, 4) === 'http') {
+        window.location = this.link.url;
+      } else {
+        this.$router.push(this.link.url);
+      }
     },
   },
 };
