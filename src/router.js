@@ -3,7 +3,7 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-const About = () => import('@/views/About');
+const Projects = () => import('@/views/Projects');
 const Home = () => import('@/views/Home');
 
 export default new Router({
@@ -14,8 +14,8 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/about',
-      component: About,
+      path: '/projects',
+      component: Projects,
     },
   ],
 });

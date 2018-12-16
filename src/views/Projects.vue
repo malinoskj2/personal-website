@@ -1,11 +1,11 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="projects">
+    <h1>This is an projects page</h1>
   </div>
 </template>
 <script>
 export default {
-  name: 'about',
+  name: 'projects',
   props: {},
   data() {
     return {};
