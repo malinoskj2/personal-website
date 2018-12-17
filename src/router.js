@@ -6,6 +6,7 @@ import Home from '@/views/Home.vue';
 import HeroTitle from '@/components/HeroTitle.vue';
 import NavButtonRow from '@/components/NavButtonRow.vue';
 import ContentWindow from '@/components/ContentWindow.vue';
+import Particles from '@/components/Particles.vue';
 
 Vue.use(Router);
 
@@ -36,6 +37,7 @@ export default new Router({
             a: HeroTitle,
             b: ContentWindow,
             c: NavButtonRow,
+            background: Particles,
           },
         },
 

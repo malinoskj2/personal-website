@@ -1,13 +1,19 @@
 <template>
   <div class="home">
 
+    <div class="home-content">
+      <router-view name="a"></router-view>
+      <router-view name="b" ></router-view>
+      <router-view name="c" class="fade-in"></router-view>
+    </div>
 
-    <router-view name="a"></router-view>
-    <router-view name="b" ></router-view>
-    <router-view name="c" class="fade-in"></router-view>
+
+    <div class="particles fade-in is-hidden-mobile">
+      <router-view name="background"></router-view>
+    </div>
+
 
   </div>
-
 </template>
 
 <script>
@@ -23,7 +29,20 @@ export default {
 };
 </script>
 <style>
-
+  .particles {
+    position: relative;
+    z-index: -100;
+  }
+  .home-content {
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 200;
+  }
+  .home{
+    position:relative;
+  }
   .fade-in {
     -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
