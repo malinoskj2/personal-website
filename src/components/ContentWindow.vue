@@ -4,7 +4,10 @@
   <section class="section content-window">
     <div class="columns">
         <div class="j-text-area">
-          <p> Hello and welcome to my site.</p>
+          <vue-typer :text='text'
+                     initial-action='typing' repeat='0'
+                     pre-type-delay="1200s" caret-animation='solid'
+            ></vue-typer>
         </div>
     </div>
   </section>
@@ -14,9 +17,9 @@
 <script>
 export default {
   name: 'ContentWindow',
-  props: {},
+  props: { },
   data() {
-    return { locale: 'en' };
+    return { text: ['Hello! 😀', 'Thanks for stopping by my site.'] };
   },
   computed: {},
   methods: {},
@@ -30,6 +33,11 @@ export default {
       color: #f6f6f6
     }
 
+    .root {
+      color: #f6f6f6;
+    }
+
+
   .graphic-a {
     position: absolute;
     left: 48%;
@@ -37,6 +45,7 @@ export default {
   }
 
   .content-window {
+
     position: relative;
 
     margin: 1rem auto 5rem auto;

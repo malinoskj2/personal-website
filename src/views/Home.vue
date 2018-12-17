@@ -29,10 +29,23 @@ export default {
 };
 </script>
 <style>
+
+  .vue-typer .custom.char.typed {
+    color: #f6f6f6;
+  }
+
+  .vue-typer .custom.caret {
+    background-color: #f6f6f6;
+    transform-origin: 100% 100%;
+    transform: rotateZ(90deg) scaleY(.5) translateX(-8px  );
+  }
+
+
   .particles {
     position: relative;
     z-index: -100;
   }
+
   .home-content {
     position:absolute;
     left: 0;
