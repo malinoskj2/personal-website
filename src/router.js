@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Projects from '@/views/Projects.vue';
 import Home from '@/views/Home.vue';
 import HeroTitle from '@/components/HeroTitle.vue';
 import NavButtonRow from '@/components/NavButtonRow.vue';
 import ContentWindow from '@/components/ContentWindow.vue';
+import ContentWindowB from '@/components/ContentWindowB.vue';
 import Particles from '@/components/Particles.vue';
 
 Vue.use(Router);
@@ -36,16 +36,20 @@ export default new Router({
           components: {
             a: HeroTitle,
             b: ContentWindow,
-            c: NavButtonRow,
+            d: NavButtonRow,
             background: Particles,
           },
         },
 
         {
           path: '/projects',
-          name: 'MainReversed',
+          name: 'ContentHomeViewSplit',
           components: {
-            a: Projects,
+            a: HeroTitle,
+            b: ContentWindow,
+            c: ContentWindowB,
+            d: NavButtonRow,
+            background: Particles,
           },
         },
 

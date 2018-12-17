@@ -53,13 +53,15 @@ export default {
     background-color:#444054;
 
     min-height: 30rem;
-    width: 70vw;
+    width: 84rem;
     filter: drop-shadow(5px 5px 2px rgba(39, 39, 39, 0.31));
     transform:scaleX(0);
 
      border-radius: 30px;
-    -webkit-animation: grow-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    animation: grow-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    -webkit-animation: grow-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both,
+    half-size 1.2s 6.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: grow-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both,
+    half-size 1.2s 6.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   }
 
   @-webkit-keyframes grow-in {
@@ -85,4 +87,27 @@ export default {
     }
   }
 
+    @-webkit-keyframes half-size {
+      0% {
+        width: 84rem;
+      }
+      70% {
+        width: 30rem;
+      }
+      100% {
+        width: 34vw;
+      }
+    }
+
+    @keyframes half-size {
+      0% {
+        width: 70vw;
+      }
+      70% {
+        width: 30rem;
+      }
+      100% {
+        width: 34vw;
+      }
+    }
 </style>

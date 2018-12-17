@@ -3,8 +3,19 @@
 
     <div class="home-content">
       <router-view name="a"></router-view>
-      <router-view name="b" ></router-view>
-      <router-view name="c" class="fade-in"></router-view>
+
+      <div class="container">
+
+       <div class="columns">
+
+           <router-view name="b" class="column" ></router-view>
+           <router-view name="c" class="column" ></router-view>
+
+       </div>
+
+      </div>
+
+      <router-view name="d" class="fade-in"></router-view>
     </div>
 
 
