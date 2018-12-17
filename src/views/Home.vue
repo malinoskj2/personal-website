@@ -9,7 +9,7 @@
        <div class="columns">
 
            <router-view name="b" class="column" ></router-view>
-           <router-view name="c" class="column" ></router-view>
+           <router-view name="c" class="column" v-if="leftFinished"  ></router-view>
 
        </div>
 
@@ -32,6 +32,9 @@
 
 export default {
   name: 'home',
+  data() {
+    return { leftFinished: false };
+  },
   components: {
   },
 
