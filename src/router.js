@@ -5,6 +5,7 @@ import Projects from '@/views/Projects.vue';
 import Home from '@/views/Home.vue';
 import HeroTitle from '@/components/HeroTitle.vue';
 import NavButtonRow from '@/components/NavButtonRow.vue';
+import ContentWindow from '@/components/ContentWindow.vue';
 
 Vue.use(Router);
 
@@ -24,15 +25,29 @@ export default new Router({
           name: 'MainHomeView',
           components: {
             a: HeroTitle,
-            b: NavButtonRow,
+            c: NavButtonRow,
+          },
+        },
+
+        {
+          path: '/content',
+          name: 'ContentHomeView',
+          components: {
+            a: HeroTitle,
+            b: ContentWindow,
+            c: NavButtonRow,
+          },
+        },
+
+        {
+          path: '/projects',
+          name: 'MainReversed',
+          components: {
+            a: Projects,
           },
         },
 
       ],
-    },
-    {
-      path: '/projects',
-      component: Projects,
     },
   ],
 });

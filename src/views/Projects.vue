@@ -1,6 +1,9 @@
 <template>
-  <div class="projects">
-  </div>
+
+    <div class="projects">
+      <h1> This is your Projects page </h1>
+    </div>
+
 </template>
 <script>
 export default {

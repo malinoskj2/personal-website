@@ -1,16 +1,17 @@
 <template>
-  <section class="hero j-big-content">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Hero title
-        </h1>
-        <h2 class="subtitle">
-          Hero subtitle
-        </h2>
+
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            .com
+          </h1>
+          <h2 class="subtitle">
+            🔥🔥🔥
+          </h2>
+        </div>
       </div>
-    </div>
-  </section>
+
+
 </template>
 
 <script>
@@ -28,7 +29,7 @@ export default {
 <style scoped>
 
   .j-big-content {
-    min-height: 40rem;
+    min-height: 10rem;
   }
 
 </style>

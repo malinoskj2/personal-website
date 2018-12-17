@@ -1,15 +1,21 @@
 <template>
-  <div>
+  <div class="container root">
+    <div>
 
-    <div class="columns is-centered">
-      <div class="column has-text-centered" v-for="(item,index) in mediaLinks" :key="index">
-        <ContentBoxSlim class="content-box"
-                        :link="item" :index="index">
-        </ContentBoxSlim>
+      <div class="columns is-centered is-fluid">
+        <div class="column has-text-centered" v-for="(item,index) in mediaLinks" :key="index">
+
+          <ContentBoxSlim class="content-box"
+                          :link="item" :index="index">
+          </ContentBoxSlim>
+
+        </div>
+
       </div>
-
     </div>
   </div>
+
+
 </template>
 
 <script>
@@ -35,6 +41,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .root {
+    margin:auto;
+  }
 
 </style>

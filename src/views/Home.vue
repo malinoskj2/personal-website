@@ -1,12 +1,13 @@
 <template>
   <div class="home">
 
-          <div class="container">
-           <router-view name="a"></router-view>
-           <router-view name="b" class="fade-in"></router-view>
-          </div>
+
+    <router-view name="a"></router-view>
+    <router-view name="b" ></router-view>
+    <router-view name="c" class="fade-in"></router-view>
 
   </div>
+
 </template>
 
 <script>
