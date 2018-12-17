@@ -6,7 +6,7 @@
         <div class="j-text-area2">
           <vue-typer :text='text'
                      initial-action='typing' repeat='0'
-                     pre-type-delay="1200s" caret-animation='solid'
+                     :pre-type-delay="8500" caret-animation='solid'
           ></vue-typer>
         </div>
       </div>
@@ -19,7 +19,7 @@ export default {
   name: 'ContentWindow',
   props: {},
   data() {
-    return { text: ["Here's what I've been up to."] };
+    return { text: ["Here's what I've been up to lately."] };
   },
   computed: {},
   methods: {},

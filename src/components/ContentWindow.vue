@@ -6,7 +6,7 @@
         <div class="j-text-area">
           <vue-typer :text='text'
                      initial-action='typing' repeat='0'
-                     pre-type-delay="1200s" caret-animation='solid'
+                     :pre-type-delay="1200" caret-animation='solid'
             ></vue-typer>
         </div>
     </div>
@@ -71,9 +71,9 @@ export default {
 
      border-radius: 30px;
     -webkit-animation: grow-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both,
-    half-size 1.2s 6.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    half-size 1.2s 7.5 cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: grow-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both,
-    half-size 1.2s 6.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    half-size 1.2s 7.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   }
 
   @-webkit-keyframes grow-in {
@@ -103,9 +103,7 @@ export default {
       0% {
         width: 84rem;
       }
-      70% {
-        width: 30rem;
-      }
+
       100% {
         width: 34vw;
       }
@@ -114,9 +112,6 @@ export default {
     @keyframes half-size {
       0% {
         width: 70vw;
-      }
-      70% {
-        width: 30rem;
       }
       100% {
         width: 34vw;
