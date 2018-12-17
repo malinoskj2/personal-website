@@ -1,10 +1,13 @@
 <template>
 
   <div class="root">
-    <section class="section content-window">
+    <section class="section content-windowB">
       <div class="columns">
-        <div class="j-text-area">
-          <p> This is window 2</p>
+        <div class="j-text-area2">
+          <vue-typer :text='text'
+                     initial-action='typing' repeat='0'
+                     pre-type-delay="1200s" caret-animation='solid'
+          ></vue-typer>
         </div>
       </div>
     </section>
@@ -16,14 +19,25 @@ export default {
   name: 'ContentWindow',
   props: {},
   data() {
-    return { text: ['Hello! 😀', 'Thanks for stopping by my site.'] };
+    return { text: ["Here's what I've been up to."] };
   },
   computed: {},
   methods: {},
 };
 </script>
 <style scoped>
-  .j-text-area {
+
+  .vue-typer >>> .custom.char.typed {
+    color: #444054;
+  }
+
+  .vue-typer >>> .custom.caret {
+    background-color: #f6f6f6;
+    transform-origin: 100% 100%;
+    transform: rotateZ(90deg) scaleY(.5) translateX(-8px  );
+  }
+
+  .j-text-area2 {
     margin: 0rem 2rem 0rem 2rem;
     font-size: x-large;
     text-align: left;
@@ -40,7 +54,7 @@ export default {
     top: 90%;
   }
 
-  .content-window {
+  .content-windowB {
 
     position: relative;
 

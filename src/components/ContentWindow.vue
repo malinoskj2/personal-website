@@ -26,6 +26,18 @@ export default {
 };
 </script>
 <style scoped>
+
+
+  .vue-typer >>> .custom.char.typed {
+    color: #f6f6f6;
+  }
+
+  .vue-typer >>> .custom.caret {
+    background-color: #f6f6f6;
+    transform-origin: 100% 100%;
+    transform: rotateZ(90deg) scaleY(.5) translateX(-8px  );
+  }
+
     .j-text-area {
       margin: 0rem 2rem 0rem 2rem;
       font-size: x-large;
