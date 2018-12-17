@@ -1,11 +1,11 @@
 <template>
 
       <div class="hero-body">
-        <div class="container">
+        <div class="container j-title-container">
           <h1 class="title">
-            .com
+            jessemalinosky.com
           </h1>
-          <h2 class="subtitle">
+          <h2 class="subtitle j-subtitle">
             🔥🔥🔥
           </h2>
         </div>
@@ -27,9 +27,22 @@ export default {
 </script>
 
 <style scoped>
-
-  .j-big-content {
-    min-height: 10rem;
+  .j-title-container {
+    -webkit-animation: blur-in-out 3000ms cubic-bezier(0.645, 0.045, 0.355, 1) forwards ;
+    animation:         blur-in-out 3000ms cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
   }
 
+  .j-subtitle {
+    color: #f46036;
+  }
+
+  @keyframes blur-in-out {
+    0%{
+      filter: blur(.08rem)
+  }
+    100% {
+      filter: blur(.02rem);
+    }
+
+  }
 </style>
