@@ -2,10 +2,11 @@
 
 <div class="root">
   <section class="section content-window">
-  <div class="columns is-centered">
-
-  </div>
-    <img class="graphic-a" src="../assets/sputnik.svg" width="200" height="40"/>
+    <div class="columns">
+        <div class="j-text-area">
+          <p> Hello and welcome to my site.</p>
+        </div>
+    </div>
   </section>
 </div>
 
@@ -22,6 +23,12 @@ export default {
 };
 </script>
 <style scoped>
+    .j-text-area {
+      margin: 0rem 2rem 0rem 2rem;
+      font-size: x-large;
+      text-align:left;
+      color: #f6f6f6
+    }
 
   .graphic-a {
     position: absolute;
