@@ -12,26 +12,6 @@ export default {
     };
   },
   created() {
-    this.$store.commit({
-      type: 'addLink',
-      website: process.env.VUE_APP_WEBSITE_A,
-      url: process.env.VUE_APP_LINK_A,
-    });
-    this.$store.commit({
-      type: 'addLink',
-      website: process.env.VUE_APP_WEBSITE_B,
-      url: process.env.VUE_APP_LINK_B,
-    });
-    this.$store.commit({
-      type: 'addLink',
-      website: process.env.VUE_APP_WEBSITE_C,
-      url: process.env.VUE_APP_LINK_C,
-    });
-    this.$store.commit({
-      type: 'addLink',
-      website: process.env.VUE_APP_WEBSITE_D,
-      url: process.env.VUE_APP_LINK_D,
-    });
   },
   computed: {
   },
