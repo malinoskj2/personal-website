@@ -53,6 +53,7 @@ export default {
 
 
   .graphic-a {
+
     position: absolute;
     left: 48%;
     top: 90%;

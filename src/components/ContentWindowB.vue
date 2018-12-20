@@ -2,6 +2,7 @@
   <div class="root">
 
         <section class="section content-windowB">
+          <p> {{this.$store.getters.getCommits}}</p>
           <div class="columns">
             <div class="j-text-area2">
               <vue-typer :text='text'
@@ -15,18 +16,25 @@
   </div>
 </template>
 <script>
+
 export default {
   name: 'ContentWindow',
   props: {},
   data() {
-    return { text: ["Here's what I've been up to lately."] };
+    return {
+      text: ["Here's what I've been up to lately."],
+    };
   },
-  computed: {},
-  methods: {},
+  computed: {
+  },
+  methods: {
+  },
 };
 </script>
 <style scoped>
-
+  p{
+    color:red;
+  }
   .vue-typer >>> .custom.char.typed {
     color: #444054;
   }

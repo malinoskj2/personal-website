@@ -48,9 +48,7 @@ export default {
   computed: {
   },
   created() {
-    setTimeout(() => {
-      this.$router.push('main');
-    }, 8200);
+
   },
 };
 </script>

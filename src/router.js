@@ -22,7 +22,7 @@ export default new Router({
       children: [
 
         {
-          path: '',
+          path: '/welcome',
           name: 'WelcomeMessage',
           components: {
             a: HeroTitle,
@@ -33,7 +33,7 @@ export default new Router({
         },
 
         {
-          path: '/main',
+          path: '',
           name: 'HomePage',
           components: {
             a: HeroTitle,

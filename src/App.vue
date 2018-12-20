@@ -12,6 +12,10 @@ export default {
     };
   },
   created() {
+    this.$store.dispatch('loadRecentCommits'); // Load git commits
+  },
+  mounted() {
+
   },
   computed: {
   },
