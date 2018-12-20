@@ -2,7 +2,7 @@
   <vue-particles
     color="#2f243a"
     :particleOpacity="0.7"
-    :particlesNumber="40"
+    :particlesNumber="numPart"
     shapeType="circle"
     :particleSize="4"
     linesColor="#dedede"
@@ -23,9 +23,13 @@
 <script>
 export default {
   name: 'Particles',
-  props: {},
+  props: {
+
+  },
   data() {
-    return { locale: 'en' };
+    return {
+      numPart: 12,
+    };
   },
   computed: {},
   methods: {},

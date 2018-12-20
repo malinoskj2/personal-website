@@ -1,16 +1,18 @@
 <template>
 
 <div class="root">
-  <section class="section content-window">
-    <div class="columns">
-        <div class="j-text-area">
-          <vue-typer :text='text'
-                     initial-action='typing' repeat='0'
-                     :pre-type-delay="1200" caret-animation='solid'
+
+      <section class="section content-window">
+        <div class="columns">
+          <div class="j-text-area">
+            <vue-typer :text='text'
+                       initial-action='typing' repeat='0'
+                       :pre-type-delay="1200" caret-animation='solid'
             ></vue-typer>
+          </div>
         </div>
-    </div>
-  </section>
+      </section>
+
 </div>
 
 </template>
@@ -67,54 +69,8 @@ export default {
     min-height: 30rem;
     width: 84rem;
     filter: drop-shadow(5px 5px 2px rgba(39, 39, 39, 0.31));
-    transform:scaleX(0);
+    transform:scale(1);
 
      border-radius: 30px;
-    -webkit-animation: grow-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both,
-    half-size 1.2s 7.5 cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    animation: grow-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both,
-    half-size 1.2s 7.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   }
-
-  @-webkit-keyframes grow-in {
-    0% {
-      transform: scaleX(0) scaleY(.3);
-    }
-    50%{
-      transform: scaleX(.5) scaleY(.3);
-    }
-    100% {
-      transform: scaleX(1) scaleY(1);
-    }
-  }
-  @keyframes fade-in {
-    0% {
-      transform: scaleX(0) scaleY(.3);
-    }
-    50%{
-      transform: scaleX(.5) scaleY(.3);
-    }
-    100% {
-      transform: scaleX(1) scaleY(1);
-    }
-  }
-
-    @-webkit-keyframes half-size {
-      0% {
-        width: 84rem;
-      }
-
-      100% {
-        width: 34vw;
-      }
-    }
-
-    @keyframes half-size {
-      0% {
-        width: 70vw;
-      }
-      100% {
-        width: 34vw;
-      }
-    }
 </style>

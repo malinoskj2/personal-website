@@ -1,18 +1,18 @@
 <template>
-
   <div class="root">
-    <section class="section content-windowB">
-      <div class="columns">
-        <div class="j-text-area2">
-          <vue-typer :text='text'
-                     initial-action='typing' repeat='0'
-                     :pre-type-delay="8500" caret-animation='solid'
-          ></vue-typer>
-        </div>
-      </div>
-    </section>
-  </div>
 
+        <section class="section content-windowB">
+          <div class="columns">
+            <div class="j-text-area2">
+              <vue-typer :text='text'
+                         initial-action='typing' repeat='0'
+                         :pre-type-delay="100" caret-animation='solid'
+              ></vue-typer>
+            </div>
+          </div>
+        </section>
+
+  </div>
 </template>
 <script>
 export default {
@@ -67,53 +67,5 @@ export default {
     width: 34rem;
 
     border-radius: 30px;
-  }
-
-  @-webkit-keyframes grow-in {
-    0% {
-      transform: scaleX(0) scaleY(.3);
-    }
-    50% {
-      transform: scaleX(.5) scaleY(.3);
-    }
-    100% {
-      transform: scaleX(1) scaleY(1);
-    }
-  }
-
-  @keyframes fade-in {
-    0% {
-      transform: scaleX(0) scaleY(.3);
-    }
-    50% {
-      transform: scaleX(.5) scaleY(.3);
-    }
-    100% {
-      transform: scaleX(1) scaleY(1);
-    }
-  }
-
-  @-webkit-keyframes half-size {
-    0% {
-      width: 84rem;
-    }
-    70% {
-      width: 30rem;
-    }
-    100% {
-      width: 34vw;
-    }
-  }
-
-  @keyframes half-size {
-    0% {
-      width: 70vw;
-    }
-    70% {
-      width: 30rem;
-    }
-    100% {
-      width: 34vw;
-    }
   }
 </style>

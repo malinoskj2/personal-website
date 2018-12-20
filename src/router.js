@@ -23,16 +23,7 @@ export default new Router({
 
         {
           path: '',
-          name: 'MainHomeView',
-          components: {
-            a: HeroTitle,
-            c: NavButtonRow,
-          },
-        },
-
-        {
-          path: '/content',
-          name: 'ContentHomeView',
+          name: 'WelcomeMessage',
           components: {
             a: HeroTitle,
             b: ContentWindow,
@@ -42,11 +33,10 @@ export default new Router({
         },
 
         {
-          path: '/projects',
-          name: 'ContentHomeViewSplit',
+          path: '/main',
+          name: 'HomePage',
           components: {
             a: HeroTitle,
-            b: ContentWindow,
             c: ContentWindowB,
             d: NavButtonRow,
             background: Particles,

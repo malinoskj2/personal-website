@@ -1,18 +1,19 @@
 <template>
-  <div class="home">
+  <div class="home" >
 
     <div class="home-content">
-      <router-view name="a"></router-view>
-
+      <router-view name="a" ></router-view>
       <div class="container">
 
        <div class="columns">
 
-           <router-view name="b" class="column" ></router-view>
-           <router-view name="c" class="column" v-if="leftFinished"  ></router-view>
+         <transition appear name="window"  mode="out-in">
+           <router-view name="b" class="column startup-message" ></router-view>
+         </transition>
+
+         <router-view name="c" class="column" ></router-view>
 
        </div>
-
       </div>
 
       <transition appear name="fade">
@@ -38,12 +39,18 @@
 export default {
   name: 'home',
   data() {
-    return { leftFinished: false };
   },
   components: {
   },
+  methods: {
 
+  },
   computed: {
+  },
+  created() {
+    setTimeout(() => {
+      this.$router.push('main');
+    }, 8200);
   },
 };
 </script>
@@ -65,6 +72,10 @@ export default {
     position:relative;
   }
 
+  .startup-message {
+    transform: scale(.5);
+  }
+  /* Fading animation */
   .fade-enter-active {
     -webkit-animation: fade 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -111,5 +122,57 @@ export default {
     }
   }
 
+  /* Growing in animation (used on window)*/
+  .window-enter-active {
+    -webkit-animation: window-frames 8.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
+    animation: window-frames 8.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
+  }
 
+  .window-leave-active {
+    -webkit-animation: window-frames 8.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) reverse;
+    animation: window-frames 8.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) reverse;
+  }
+
+  @-webkit-keyframes window-frames {
+    0% {
+      transform: scaleX(0) scaleY(.3);
+    }
+    7%{
+      transform: scaleX(.5) scaleY(.3);
+    }
+
+    15% {
+      transform: scaleX(1) scaleY(1);
+    }
+    84%{
+      transform: scaleX(1) scaleY(1);
+    }
+    91%{
+      transform: scaleX(.2) scaleY(.2) rotate(0deg);
+    }
+    100% {
+      transform: scaleX(0) scaleY(0) rotate(100deg);
+    }
+  }
+  @keyframes window-frames {
+    0% {
+      transform: scaleX(0) scaleY(.3);
+    }
+    7%{
+      transform: scaleX(.5) scaleY(.3);
+    }
+
+    15% {
+      transform: scaleX(1) scaleY(1);
+    }
+    84%{
+      transform: scaleX(1) scaleY(1);
+    }
+    91%{
+      transform: scaleX(.2) scaleY(.2) rotate(0deg);
+    }
+    100% {
+      transform: scaleX(0) scaleY(0) rotate(100deg);
+    }
+  }
 </style>
