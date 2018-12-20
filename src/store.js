@@ -4,13 +4,14 @@ import Vuex from 'vuex';
 
 import _ from 'lodash';
 
-import { getRecentCommits } from './api/api';
+import { getRecentCommits, getMastodonStatuses } from './api/api';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     commits: [],
+    statuses: [],
     links: [{
       website: process.env.VUE_APP_WEBSITE_A,
       url: process.env.VUE_APP_LINK_A,
@@ -40,6 +41,9 @@ export default new Vuex.Store({
     setCommits(state, payload) {
       state.commits = payload.githubCommits;
     },
+    setStatuses(state, payload) {
+      state.statuses = payload.mastodonStatuses;
+    },
   },
   getters: {
     getLinks: state => state.links,
@@ -50,11 +54,18 @@ export default new Vuex.Store({
       return _(state.commits)
         .map(commit => commit.message);
     },
+    getStatuses(state) {
+      return state.statuses;
+    },
   },
   actions: {
     async loadRecentCommits({ commit }) {
       const recentCommits = await getRecentCommits();
       commit('setCommits', { githubCommits: recentCommits });
+    },
+    async loadRecentStatuses({ commit }) {
+      const recentStatuses = await getMastodonStatuses();
+      commit('setStatuses', { mastodonStatuses: recentStatuses });
     },
   },
 });
