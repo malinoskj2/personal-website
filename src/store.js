@@ -61,7 +61,9 @@ export default new Vuex.Store({
       return state.statuses;
     },
     getEvents(state, getters) {
-      const events = getters.getCommits.concat(getters.getStatuses);
+      const events = [];
+      getters.getStatuses.forEach(status => events.push(status));
+      getters.getCommits.forEach(status => events.push(status));
       return events;
     },
   },

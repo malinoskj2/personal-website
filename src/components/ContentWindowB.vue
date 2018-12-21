@@ -1,17 +1,17 @@
 <template>
   <div class="root">
 
-        <section class="section content-windowB">
-          <p> {{this.$store.getters.getEvents}}</p>
-          <div class="columns">
-            <div class="j-text-area2">
-              <vue-typer :text='text'
-                         initial-action='typing' repeat='0'
-                         :pre-type-delay="100" caret-animation='solid'
-              ></vue-typer>
-            </div>
-          </div>
-        </section>
+    <section class="section content-windowB">
+      <p> {{getEvents}}</p>
+      <div class="columns">
+        <div class="j-text-area2">
+          <vue-typer :text='text'
+                     initial-action='typing' repeat='0'
+                     :pre-type-delay="100" caret-animation='solid'
+          ></vue-typer>
+        </div>
+      </div>
+    </section>
 
   </div>
 </template>
@@ -22,19 +22,22 @@ export default {
   props: {},
   data() {
     return {
-      text: ["Here's what I've been up to lately."],
+      text: ['Here\'s what I\'ve been up to lately.'],
     };
   },
   computed: {
+    getEvents() {
+      return this.$store.getters.getEvents.map(event => event.url);
+    },
   },
-  methods: {
-  },
+  methods: {},
 };
 </script>
 <style scoped>
-  p{
-    color:red;
+  p {
+    color: red;
   }
+
   .vue-typer >>> .custom.char.typed {
     color: #444054;
   }
@@ -42,7 +45,7 @@ export default {
   .vue-typer >>> .custom.caret {
     background-color: #f6f6f6;
     transform-origin: 100% 100%;
-    transform: rotateZ(90deg) scaleY(.5) translateX(-8px  );
+    transform: rotateZ(90deg) scaleY(.5) translateX(-8px);
   }
 
   .j-text-area2 {
