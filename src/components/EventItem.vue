@@ -1,6 +1,12 @@
 <template>
-    <li @click="goToLink"> {{messageTrimmed}} </li>
+  <div @click="goToLink">
 
+    <figure class="image is-16x16 source-icon">
+      <img src="../assets/GitHub-Mark-32px.png" width="16px" height="16px">
+    </figure>
+
+    <li > {{messageTrimmed}}</li>
+  </div>
 </template>
 
 <script>
@@ -10,7 +16,7 @@ export default {
     event: Object,
   },
   data() {
-    return { };
+    return {};
   },
   computed: {
     source() {
@@ -39,5 +45,28 @@ export default {
 </script>
 
 <style scoped>
+  div {
+      positon:relative;
+  }
+  img:hover {
+    cursor:pointer;
+  }
+  li {
+    list-style-type: none;
+    postion:absolute;
+  }
+  li:hover {
+    cursor:pointer;
+  }
+  .source-icon {
+    position: absolute;
+    margin-top: .45rem;
+    left: 1rem;
 
+  }
+  img {
+    top: 0;
+    left: 0;
+    postion: absolute;
+   }
 </style>

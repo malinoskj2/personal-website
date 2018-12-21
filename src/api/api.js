@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable no-param-reassign,camelcase */
 const axios = require('axios');
 const _ = require('lodash');
 
@@ -42,10 +42,17 @@ export const getMastodonStatuses = async () => {
   return _(statuses.data)
     .filter(status => _.isNull(status.in_reply_to_id))
     .filter(status => !_.includes(status.uri, 'activity'))
-    .map(status => ({
-      source: 'mastodon',
-      time: Date.parse(status.created_at),
-      message: status.content,
-      url: status.uri,
-    }));
+    .map((status) => {
+      const { created_at, content, uri } = status;
+      const message = (content.includes('&') ? content.split('&')[0].concat('...')
+        : content
+      ).substring(0, 36);
+
+      return {
+        source: 'mastodon',
+        time: Date.parse(created_at),
+        message: message.replace(/<[^>]+>/ig, ''), // i know
+        url: uri,
+      };
+    });
 };

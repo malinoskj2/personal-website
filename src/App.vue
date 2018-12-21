@@ -25,7 +25,6 @@ export default {
 };
 </script>
 <style>
-  @import url('https://use.fontawesome.com/releases/v5.3.1/js/all.js');
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700');
   @import '../node_modules/bulma/css/bulma.css';
 

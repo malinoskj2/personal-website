@@ -2,14 +2,20 @@
   <div class="root">
 
     <section class="section content-windowB">
-      <EventItem v-for="(event,index) in getEvents" :event="event" :key="index"
-      class="j-text"/>
+
       <div class="columns">
         <div class="j-text-area2">
+
           <vue-typer :text='text'
                      initial-action='typing' repeat='0'
                      :pre-type-delay="100" caret-animation='solid'
           ></vue-typer>
+
+
+          <EventItem v-for="(event,index) in getEvents" :event="event" :key="index"
+                     class="j-text"/>
+
+
         </div>
       </div>
     </section>
@@ -17,6 +23,8 @@
   </div>
 </template>
 <script>
+/* eslint-disable no-unused-vars */
+
 import _ from 'lodash';
 import EventItem from './EventItem.vue';
 
@@ -34,8 +42,8 @@ export default {
   },
   computed: {
     getEvents() {
-      const events = this.$store.getters.getEvents2;
-      return _.take(events.reverse(), 15);
+      const events = _.take(this.$store.getters.getEvents2, 15);
+      return events.reverse();
     },
     getBundled() {
       return this.$store.getters.getEventsBundled;
@@ -61,9 +69,9 @@ export default {
 
   .j-text-area2 {
     margin: 0rem 2rem 0rem 2rem;
-    font-size: x-large;
+    font-size: large;
     text-align: left;
-    color: #444054
+    color: #444054;
   }
 
   .root {

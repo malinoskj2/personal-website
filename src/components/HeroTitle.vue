@@ -2,7 +2,7 @@
 
       <div class="hero-body">
         <div class="container j-title-container">
-          <h1 class="title">
+          <h1 class="title page-name" @click="goToHome">
             jessemalinosky.com
           </h1>
           <h2 class="subtitle j-subtitle">
@@ -11,22 +11,29 @@
         </div>
       </div>
 
-
 </template>
-
 <script>
 export default {
   name: 'HeroTitle',
   props: {},
   data() {
-    return { };
+    return {
+    };
   },
   computed: {},
-  methods: {},
+  methods: {
+    goToHome() {
+      this.$router.push('/');
+    },
+  },
 };
 </script>
 
 <style scoped>
+  .page-name:hover {
+    cursor: pointer;
+  }
+
   .j-title-container {
     filter: blur(.02rem);
     -webkit-animation: blur-in-out 3000ms cubic-bezier(0.645, 0.045, 0.355, 1) forwards ;
