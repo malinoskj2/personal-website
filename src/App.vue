@@ -39,7 +39,6 @@ export default {
   html {
     font-size: 100%;
     min-height: 2528px;
-    background-color: #f6f6f6;
   }
 
   #app {
