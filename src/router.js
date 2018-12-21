@@ -28,7 +28,7 @@ export default new Router({
             a: HeroTitle,
             b: ContentWindow,
             d: NavButtonRow,
-            background: Particles,
+
           },
         },
 
@@ -39,7 +39,6 @@ export default new Router({
             a: HeroTitle,
             c: ContentWindowB,
             d: NavButtonRow,
-            background: Particles,
           },
         },
 

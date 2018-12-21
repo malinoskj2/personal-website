@@ -1,35 +1,32 @@
 <template>
-  <div class="container root">
-    <div>
 
-      <div class="columns is-centered is-fluid">
-        <div class="column has-text-centered" v-for="(item,index) in mediaLinks" :key="index">
+  <div>
 
-          <ContentBoxSlim class="content-box"
-                          :link="item" :index="index">
-          </ContentBoxSlim>
+    <div class="column">
+      <div class="field has-addons">
 
-        </div>
+        <MediaButton :link="mediaLinks[0]" icon="fab fa-github"/>
+        <MediaButton :link="mediaLinks[1]" icon="fab fa-mastodon"/>
+        <MediaButton :link="mediaLinks[2]" icon="fas fa-envelope"/>
 
       </div>
+
     </div>
   </div>
-
-
 </template>
 
 <script>
-import ContentBoxSlim from './ContentBoxSlim.vue';
+
+import MediaButton from './MediaButton.vue';
 
 export default {
   name: 'NavButtonRow',
   components: {
-    ContentBoxSlim,
+    MediaButton,
   },
-  props: {
-  },
+  props: {},
   data() {
-    return { };
+    return {};
   },
   computed: {
     mediaLinks() {
@@ -42,7 +39,7 @@ export default {
 
 <style scoped>
   .root {
-    margin:auto;
+    margin: auto;
   }
 
 </style>

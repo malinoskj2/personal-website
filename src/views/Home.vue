@@ -1,34 +1,31 @@
 <template>
   <div class="home" >
 
-    <div class="home-content">
-      <router-view name="a" ></router-view>
       <div class="container">
 
+
+            <nav class="level j-header">
+
+              <div class="level-left">
+                <div class="level-item">
+                  <router-view name="a" class="" ></router-view>
+                </div>
+              </div>
+
+              <div class="level-right">
+                <div class="level-item">
+                  <transition appear name="fade">
+                    <router-view name="d" class=""></router-view>
+                  </transition>
+                </div>
+              </div>
+            </nav>
+
+
        <div class="columns">
-
-         <transition appear name="window"  mode="out-in">
-           <router-view name="b" class="column startup-message" ></router-view>
-         </transition>
-
          <router-view name="c" class="column" ></router-view>
-
        </div>
       </div>
-
-      <transition appear name="fade">
-        <router-view name="d" class=""></router-view>
-      </transition>
-
-
-    </div>
-
-    <transition appear name="fade">
-      <div class="particles is-hidden-mobile">
-        <router-view name="background"></router-view>
-      </div>
-    </transition>
-
 
   </div>
 </template>
@@ -53,21 +50,11 @@ export default {
 };
 </script>
 <style>
-
-  .particles {
-    position: relative;
-    z-index: -100;
+  .j-header {
+    overflow: visible
   }
 
-  .home-content {
-    position:absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    z-index: 200;
-  }
   .home{
-    position:relative;
   }
 
   .startup-message {
