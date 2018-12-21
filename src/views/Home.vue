@@ -7,14 +7,14 @@
         <nav class="level j-header is-hidden-mobile">
           <div class="level-left">
             <div class="level-item">
-              <router-view name="a" class="" ></router-view>
+              <router-view name="nav-left" class="" ></router-view>
             </div>
           </div>
 
           <div class="level-right">
             <div class="level-item">
               <transition appear name="fade">
-                <router-view name="d" class=""></router-view>
+                <router-view name="nav-right" class=""></router-view>
               </transition>
             </div>
           </div>
@@ -27,7 +27,7 @@
     <section class="section">
       <div class="container">
         <div class="columns ">
-          <router-view name="c" class="column j-content" ></router-view>
+          <router-view name="content-a" class="column j-content" ></router-view>
         </div>
       </div>
     </section>
