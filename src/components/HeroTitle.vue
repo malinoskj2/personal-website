@@ -8,7 +8,7 @@
           <h2 class="subtitle">
             <vue-typer text='🔥🔥🔥'
                        initial-action='typing' :repeat="repeat"
-                       :pre-type-delay="100" caret-animation='solid'
+                       :pre-type-delay="1200" caret-animation='solid'
                        class="typer"
             ></vue-typer>
 
