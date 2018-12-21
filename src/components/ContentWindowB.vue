@@ -2,7 +2,8 @@
   <div class="root">
 
     <section class="section content-windowB">
-      <p> {{getBundled}}</p>
+      <EventItem v-for="(event,index) in getEvents" :event="event" :key="index"
+      class="j-text"/>
       <div class="columns">
         <div class="j-text-area2">
           <vue-typer :text='text'
@@ -16,10 +17,16 @@
   </div>
 </template>
 <script>
+import _ from 'lodash';
+import EventItem from './EventItem.vue';
+
 
 export default {
   name: 'ContentWindow',
   props: {},
+  components: {
+    EventItem,
+  },
   data() {
     return {
       text: ['Here\'s what I\'ve been up to lately.'],
@@ -28,7 +35,7 @@ export default {
   computed: {
     getEvents() {
       const events = this.$store.getters.getEvents2;
-      return events;
+      return _.take(events.reverse(), 15);
     },
     getBundled() {
       return this.$store.getters.getEventsBundled;
@@ -38,8 +45,8 @@ export default {
 };
 </script>
 <style scoped>
-  p {
-    color: red;
+  .j-text {
+    color: #444054;
   }
 
   .vue-typer >>> .custom.char.typed {

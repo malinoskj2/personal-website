@@ -1,5 +1,5 @@
 <template>
-    <p> </p>
+    <li @click="goToLink"> {{messageTrimmed}} </li>
 
 </template>
 
@@ -12,8 +12,29 @@ export default {
   data() {
     return { };
   },
-  computed: {},
-  methods: {},
+  computed: {
+    source() {
+      return this.event.source;
+    },
+    url() {
+      return this.event.url;
+    },
+    time() {
+      return this.event.time;
+    },
+    message() {
+      return this.event.message;
+    },
+    messageTrimmed() {
+      const trimmed = this.event.message.split('\n');
+      return (trimmed.length < 2) ? trimmed[0] : trimmed[0].concat('...');
+    },
+  },
+  methods: {
+    goToLink() {
+      window.location = this.event.url;
+    },
+  },
 };
 </script>
 
