@@ -1,10 +1,5 @@
 <template>
   <div @click="goToLink">
-
-    <figure class="image is-16x16 source-icon">
-      <img src="../assets/GitHub-Mark-32px.png" width="16px" height="16px">
-    </figure>
-
     <li > {{messageTrimmed}}</li>
   </div>
 </template>

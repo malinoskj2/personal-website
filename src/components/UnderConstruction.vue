@@ -1,10 +1,7 @@
 <template>
-  <div class="section">
-    <div class="columns">
-      <h1 class="is-centered is-fullhd">Under Construction</h1>
-    </div>
 
-  </div>
+      <h1 class="is-centered is-fullhd">Under Construction</h1>
+
 
 </template>
 
@@ -22,7 +19,6 @@ export default {
 
 <style scoped>
   h1 {
-    width: 100vw;
     color: #444054;
     font-weight: 700;
     font-size: xx-large;

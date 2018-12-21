@@ -2,7 +2,6 @@
 const axios = require('axios');
 const _ = require('lodash');
 
-
 const githubUser = process.env.VUE_APP_GITHUB_USER;
 const mastodonAccessToken = process.env.VUE_APP_MASTODON_ACCESS_TOKEN;
 const mastodonIdNum = process.env.VUE_APP_MASTODON_ID;

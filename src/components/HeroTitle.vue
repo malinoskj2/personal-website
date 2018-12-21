@@ -7,7 +7,7 @@
           </h1>
           <h2 class="subtitle">
             <vue-typer text='🔥🔥🔥'
-                       initial-action='typing' repeat='0'
+                       initial-action='typing' :repeat="repeat"
                        :pre-type-delay="100" caret-animation='solid'
                        class="typer"
             ></vue-typer>
@@ -22,10 +22,10 @@ export default {
   name: 'HeroTitle',
   props: {},
   data() {
-    return {
-    };
+    return { repeat: 0 };
   },
-  computed: {},
+  computed: {
+  },
   methods: {
     goToHome() {
       this.$router.push('/');
@@ -50,8 +50,6 @@ export default {
 
     color: #444054;
     filter: blur(.02rem);
-    -webkit-animation: blur-in-out 3000ms cubic-bezier(0.645, 0.045, 0.355, 1) forwards ;
-    animation:         blur-in-out 3000ms cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
   }
   .vue-typer >>> .custom.char.typed {
     color: #f46036;

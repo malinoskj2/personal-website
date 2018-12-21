@@ -1,7 +1,9 @@
 <template>
 
   <div id="app">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
     <router-view/>
   </div>
 </template>
@@ -29,7 +31,11 @@ export default {
 <style>
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700');
   @import '../node_modules/bulma/css/bulma.css';
-
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   html {
     font-size: 100%;
     min-height: 2528px;
@@ -38,7 +44,7 @@ export default {
 
   #app {
     font-weight: 400;
-    color: black;
+    color: #444054;
 
     font-family: 'Josefin Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
