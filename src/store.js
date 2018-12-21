@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 
 import _ from 'lodash';
 
-import { getRecentCommits, getMastodonStatuses } from './api/api';
+import { getRecentCommits, getMastodonStatuses, getGithubRepos } from './api/api';
 
 Vue.use(Vuex);
 
@@ -35,6 +35,7 @@ export default new Vuex.Store({
   state: {
     events: [],
     eventsBundled: [],
+    projects: [],
     links: getEnvLinks(),
   },
   mutations: {
@@ -52,6 +53,9 @@ export default new Vuex.Store({
     setBundled(state, payload) {
       state.eventsBundled = payload.bundled;
     },
+    setProjects(state, payload) {
+      state.projects = payload.projects;
+    },
   },
   getters: {
     getLinks: state => state.links,
@@ -60,6 +64,9 @@ export default new Vuex.Store({
     },
     getEventsBundled(state, getters) {
       return state.eventsBundled;
+    },
+    getProjects(state, getters) {
+      return state.projects;
     },
   },
   actions: {
@@ -70,6 +77,9 @@ export default new Vuex.Store({
 
       commit('setBundled', { bundled: groupByDate(events) });
       commit('setEvents', { events });
+    },
+    async initProjects({ commit }) {
+      commit('setProjects', { projects: await getGithubRepos() });
     },
   },
 });

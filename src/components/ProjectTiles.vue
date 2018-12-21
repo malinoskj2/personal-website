@@ -2,19 +2,20 @@
   <div class="tile is-ancestor">
 
     <div class="tile is-4 is-parent is-vertical">
-
-     <project-tile :projectInfo="testObj"/>
-      <project-tile :projectInfo="testObj"/>
-
+      <ProjectTile :projectInfo="getProjects[0]"/>
+      <ProjectTile :projectInfo="getProjects[1]"/>
     </div>
 
     <div class="tile is-parent">
-      <project-tile :projectInfo="testObj"/>
+      <ProjectTile :projectInfo="getProjects[2]"/>
     </div>
+
   </div>
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-components */
+
 import ProjectTile from '@/components/ProjectTile.vue';
 
 export default {
@@ -31,8 +32,19 @@ export default {
       },
     };
   },
-  computed: {},
-  methods: {},
+  computed: {
+    getProjects() {
+      const projects = this.$store.getters.getProjects;
+      return projects;
+    },
+    projectGroups() {
+      const projects = this.$store.getters.getProjects;
+      const numGroups = Math.ceil(projects.length / 3);
+      return projects;
+    },
+  },
+  methods: {
+  },
 };
 </script>
 

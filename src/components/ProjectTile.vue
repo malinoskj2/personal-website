@@ -1,7 +1,8 @@
 <template>
   <div class="tile is-child box">
-    <p class="title">{{projectInfo.title}}</p>
-    <p>{{projectInfo.content}}</p>
+    <p class="title">{{projectInfo.name}}</p>
+    <p>{{projectInfo.description}}</p>
+    <p>{{projectInfo.numCommits}}</p>
   </div>
 </template>
 
