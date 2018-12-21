@@ -7,6 +7,7 @@ import NavButtonRow from '@/components/NavButtonRow.vue';
 import ContentWindow from '@/components/ContentWindow.vue';
 import ContentWindowB from '@/components/ContentWindowB.vue';
 import Particles from '@/components/Particles.vue';
+import UnderConstruction from '@/components/UnderConstruction.vue';
 
 Vue.use(Router);
 
@@ -37,7 +38,7 @@ export default new Router({
           name: 'HomePage',
           components: {
             a: HeroTitle,
-            c: ContentWindowB,
+            c: UnderConstruction,
             d: NavButtonRow,
           },
         },

@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      text: ['Here\'s what I\'ve been up to lately.'],
+      text: ['Here\'s what I\'ve been up to.'],
     };
   },
   computed: {
@@ -57,6 +57,10 @@ export default {
   .j-text {
     color: #444054;
     font-size: x-large;
+  }
+
+  .j-text:hover {
+    transform: scale(1.1);
   }
 
   .vue-typer >>> .custom.char.typed {
