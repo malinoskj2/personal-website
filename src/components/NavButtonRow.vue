@@ -5,6 +5,13 @@
     <div class="column">
       <div class="field has-addons">
 
+        <router-link class="page-link" :to="mediaLinks[3].url">
+          {{mediaLinks[3].website}}
+        </router-link>
+        <router-link class="page-link" :to="mediaLinks[4].url">
+          {{mediaLinks[4].website}}
+        </router-link>
+
         <MediaButton :link="mediaLinks[0]" icon="fab fa-github"/>
         <MediaButton :link="mediaLinks[1]" icon="fab fa-mastodon"/>
         <MediaButton :link="mediaLinks[2]" icon="fas fa-envelope"/>
@@ -40,6 +47,10 @@ export default {
 <style scoped>
   .root {
     margin: auto;
+  }
+  .page-link {
+    color: #444054;
+    margin: auto 1rem auto 1rem;
   }
 
 </style>

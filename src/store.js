@@ -24,6 +24,10 @@ function getEnvLinks() {
   {
     website: process.env.VUE_APP_WEBSITE_D,
     url: process.env.VUE_APP_LINK_D,
+  },
+  {
+    website: process.env.VUE_APP_WEBSITE_E,
+    url: process.env.VUE_APP_LINK_E,
   }];
 }
 
