@@ -2,7 +2,7 @@
   <div class="root">
 
         <section class="section content-windowB">
-          <p> {{this.$store.getters.getStatuses}}</p>
+          <p> {{this.$store.getters.getEvents}}</p>
           <div class="columns">
             <div class="j-text-area2">
               <vue-typer :text='text'

@@ -2,8 +2,8 @@
 const axios = require('axios');
 const _ = require('lodash');
 
-const githubUser = process.env.VUE_APP_GITHUB_USER;
 
+const githubUser = process.env.VUE_APP_GITHUB_USER;
 const mastodonAccessToken = process.env.VUE_APP_MASTODON_ACCESS_TOKEN;
 const mastodonIdNum = process.env.VUE_APP_MASTODON_ID;
 
@@ -31,6 +31,7 @@ export const getMastodonStatuses = async () => {
   const statuses = await axios.get(`https://fosstodon.org/api/v1/accounts/${mastodonIdNum}/statuses`, {
     headers: {
       Authorization: `Bearer ${mastodonAccessToken}`, // the token is a variable which holds the token
+      'Content-Type': 'application/json',
     },
   });
 

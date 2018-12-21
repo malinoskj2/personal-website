@@ -1,6 +1,8 @@
-/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default-member,no-unused-vars */
 import Vue from 'vue';
 import Vuex from 'vuex';
+
+import _ from 'lodash';
 
 import { getRecentCommits, getMastodonStatuses } from './api/api';
 
@@ -46,6 +48,9 @@ export default new Vuex.Store({
     setStatuses(state, payload) {
       state.statuses = payload.mastodonStatuses;
     },
+    setEvents(state, payload) {
+      state.events = payload.events;
+    },
   },
   getters: {
     getLinks: state => state.links,
@@ -54,6 +59,10 @@ export default new Vuex.Store({
     },
     getStatuses(state) {
       return state.statuses;
+    },
+    getEvents(state, getters) {
+      const events = getters.getCommits.concat(getters.getStatuses);
+      return events;
     },
   },
   actions: {
