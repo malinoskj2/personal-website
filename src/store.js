@@ -1,4 +1,4 @@
-/* eslint-disable import/no-named-as-default-member,no-unused-vars */
+/* eslint-disable import/no-named-as-default-member,no-unused-vars,no-use-before-define */
 import Vue from 'vue';
 import Vuex from 'vuex';
 
@@ -29,8 +29,8 @@ function getEnvLinks() {
 
 export default new Vuex.Store({
   state: {
-    commits: [],
-    statuses: [],
+    events: [],
+    eventsBundled: [],
     links: getEnvLinks(),
   },
   mutations: {
@@ -42,39 +42,42 @@ export default new Vuex.Store({
       };
       state.links.push(weblink);
     },
-    setCommits(state, payload) {
-      state.commits = payload.githubCommits;
-    },
-    setStatuses(state, payload) {
-      state.statuses = payload.mastodonStatuses;
-    },
     setEvents(state, payload) {
       state.events = payload.events;
+    },
+    setBundled(state, payload) {
+      state.eventsBundled = payload.bundled;
     },
   },
   getters: {
     getLinks: state => state.links,
-    getCommits(state) {
-      return state.commits;
+    getEvents2(state) {
+      return state.events;
     },
-    getStatuses(state) {
-      return state.statuses;
-    },
-    getEvents(state, getters) {
-      const events = [];
-      getters.getStatuses.forEach(status => events.push(status));
-      getters.getCommits.forEach(status => events.push(status));
-      return events;
+    getEventsBundled(state, getters) {
+      return state.eventsBundled;
     },
   },
   actions: {
-    async loadRecentCommits({ commit }) {
-      const recentCommits = await getRecentCommits();
-      commit('setCommits', { githubCommits: recentCommits });
-    },
-    async loadRecentStatuses({ commit }) {
-      const recentStatuses = await getMastodonStatuses();
-      commit('setStatuses', { mastodonStatuses: recentStatuses });
+    async initEvents({ commit }) {
+      const commits = await getRecentCommits();
+      const statuses = await getMastodonStatuses();
+      const events = merge(commits, statuses);
+
+      commit('setBundled', { bundled: groupByDate(events) });
+      commit('setEvents', { events });
     },
   },
 });
+
+function merge(a, b) {
+  const events = [];
+  a.forEach(status => events.push(status));
+  b.forEach(status => events.push(status));
+  return events;
+}
+
+function groupByDate(objsWithDate) {
+  return _(objsWithDate)
+    .groupBy(obj => obj.time);
+}

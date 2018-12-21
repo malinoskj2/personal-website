@@ -12,8 +12,9 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch('loadRecentCommits'); // Load git commits
-    this.$store.dispatch('loadRecentStatuses'); // Load mastodon statuses
+    //   this.$store.dispatch('loadRecentCommits'); // Load git commits
+  //  this.$store.dispatch('loadRecentStatuses'); // Load mastodon statuses
+    this.$store.dispatch('initEvents');
   },
   mounted() {
 

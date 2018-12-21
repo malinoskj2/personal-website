@@ -22,7 +22,8 @@ export const getRecentCommits = async () => {
       return pushed.payload.commits;
     })
     .map(commit => ({
-      time: commit.created_at,
+      source: 'github',
+      time: Date.parse(commit.created_at),
       message: commit.message,
       url: commit.url,
     }));
@@ -37,7 +38,8 @@ export const getMastodonStatuses = async () => {
 
   return _(statuses.data)
     .map(status => ({
-      time: status.created_at,
+      source: 'mastodon',
+      time: Date.parse(status.created_at),
       message: status.content,
       url: status.uri,
     }));

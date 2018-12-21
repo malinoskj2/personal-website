@@ -2,7 +2,7 @@
   <div class="root">
 
     <section class="section content-windowB">
-      <p> {{getEvents}}</p>
+      <p> {{getBundled}}</p>
       <div class="columns">
         <div class="j-text-area2">
           <vue-typer :text='text'
@@ -27,7 +27,11 @@ export default {
   },
   computed: {
     getEvents() {
-      return this.$store.getters.getEvents.map(event => event.url);
+      const events = this.$store.getters.getEvents2;
+      return events;
+    },
+    getBundled() {
+      return this.$store.getters.getEventsBundled;
     },
   },
   methods: {},
