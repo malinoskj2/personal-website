@@ -9,6 +9,7 @@
           <vue-typer :text='text'
                      initial-action='typing' repeat='0'
                      :pre-type-delay="100" caret-animation='solid'
+                     class="typer"
           ></vue-typer>
 
 
@@ -55,6 +56,7 @@ export default {
 <style scoped>
   .j-text {
     color: #444054;
+    font-size: x-large;
   }
 
   .vue-typer >>> .custom.char.typed {
@@ -66,10 +68,13 @@ export default {
     transform-origin: 100% 100%;
     transform: rotateZ(90deg) scaleY(.5) translateX(-8px);
   }
-
+  .typer {
+    font-weight: 700;
+    font-size: xx-large;
+  }
   .j-text-area2 {
     margin: 0rem 2rem 0rem 2rem;
-    font-size: large;
+
     text-align: left;
     color: #444054;
   }
