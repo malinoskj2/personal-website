@@ -26,10 +26,9 @@
 
     <section class="section">
       <div class="container">
-        <div class="columns ">
-          <router-view name="content-a" class="column j-content" ></router-view>
-        </div>
+        <router-view name="content-a" class="column j-content" ></router-view>
       </div>
+
     </section>
 
   </div>
@@ -62,6 +61,6 @@ export default {
     overflow: visible
   }
   .j-content {
-    border: solid 1px black;
+   /*border: solid 1px black; */
   }
 </style>
