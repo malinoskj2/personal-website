@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const axios = require('axios');
 const _ = require('lodash');
 
@@ -13,12 +14,30 @@ export const getRecentCommits = async () => {
 
   return _(events.data)
     .filter(event => event.type === 'PushEvent')
-    .flatMap(pushed => pushed.payload.commits)
-    .value();
+    .flatMap((pushed) => {
+      pushed.payload.commits.map((commit) => {
+        commit.created_at = pushed.created_at;
+        return commit;
+      });
+      return pushed.payload.commits;
+    })
+    .map(commit => ({
+      time: commit.created_at,
+      message: commit.message,
+      url: commit.url,
+    }));
 };
+export const getMastodonStatuses = async () => {
+  const statuses = await axios.get(`https://fosstodon.org/api/v1/accounts/${mastodonIdNum}/statuses`, {
+    headers: {
+      Authorization: `Bearer ${mastodonAccessToken}`, // the token is a variable which holds the token
+    },
+  });
 
-export const getMastodonStatuses = async () => axios.get(`https://fosstodon.org/api/v1/accounts/${mastodonIdNum}/statuses`, {
-  headers: {
-    Authorization: `Bearer ${mastodonAccessToken}`, // the token is a variable which holds the token
-  },
-});
+  return _(statuses.data)
+    .map(status => ({
+      time: status.created_at,
+      message: status.content,
+      url: status.uri,
+    }));
+};
