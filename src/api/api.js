@@ -40,6 +40,8 @@ export const getMastodonStatuses = async () => {
   });
 
   return _(statuses.data)
+    .filter(status => _.isNull(status.in_reply_to_id))
+    .filter(status => !_.includes(status.uri, 'activity'))
     .map(status => ({
       source: 'mastodon',
       time: Date.parse(status.created_at),
