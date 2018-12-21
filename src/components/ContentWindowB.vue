@@ -35,7 +35,7 @@ export default {
   computed: {
     getEvents() {
       const events = this.$store.getters.getEvents2;
-      return _.take(events.reverse(), 15);
+      return _.take(events, 15);
     },
     getBundled() {
       return this.$store.getters.getEventsBundled;

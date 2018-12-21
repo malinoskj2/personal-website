@@ -25,7 +25,10 @@ export const getRecentCommits = async () => {
       source: 'github',
       time: Date.parse(commit.created_at),
       message: commit.message,
-      url: commit.url,
+      url: commit.url
+        .replace('repos/', '')
+        .replace('api.', '')
+        .replace('commits', 'commit'),
     }));
 };
 export const getMastodonStatuses = async () => {
