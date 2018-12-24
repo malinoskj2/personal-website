@@ -4,7 +4,9 @@
 
     <div class="column">
       <div class="field has-addons">
-
+        <router-link class="page-link" :to="mediaLinks[5].url">
+          {{mediaLinks[5].website}}
+        </router-link>
         <router-link class="page-link" :to="mediaLinks[3].url">
           {{mediaLinks[3].website}}
         </router-link>
