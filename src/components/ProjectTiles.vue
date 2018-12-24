@@ -10,6 +10,9 @@
       <ProjectTile :projectInfo="getProjects[2]"/>
     </div>
 
+    <div class="tile is-parent">
+      <ProjectTile :projectInfo="getProjects[3]"/>
+    </div>
   </div>
 </template>
 
