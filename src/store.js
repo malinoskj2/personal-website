@@ -2,9 +2,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import _ from 'lodash';
-
-import { getRecentCommits, getMastodonStatuses, getGithubRepos } from './api/api';
+import { getRecentCommits, getRepos, getStatuses } from './api/api';
 
 Vue.use(Vuex);
 
@@ -70,28 +68,8 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async initEvents({ commit }) {
-      const commits = await getRecentCommits();
-      const statuses = await getMastodonStatuses();
-      const events = merge(commits, statuses);
-
-      commit('setBundled', { bundled: groupByDate(events) });
-      commit('setEvents', { events });
-    },
     async initProjects({ commit }) {
-      commit('setProjects', { projects: await getGithubRepos() });
+      commit('setProjects', { projects: await getRepos() });
     },
   },
 });
-
-function merge(a, b) {
-  const events = [];
-  a.forEach(status => events.push(status));
-  b.forEach(status => events.push(status));
-  return events;
-}
-
-function groupByDate(objsWithDate) {
-  return _(objsWithDate)
-    .groupBy(obj => obj.time);
-}

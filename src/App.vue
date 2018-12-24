@@ -19,7 +19,6 @@ export default {
     //   this.$store.dispatch('loadRecentCommits'); // Load git commits
   //  this.$store.dispatch('loadRecentStatuses'); // Load mastodon statuses
     this.$store.dispatch('initProjects');
-    this.$store.dispatch('initEvents');
   },
   mounted() {
 
