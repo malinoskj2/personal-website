@@ -1,18 +1,34 @@
 <template>
-  <div class="tile is-ancestor">
+  <div class="section">
 
-    <div class="tile is-4 is-parent is-vertical">
-      <ProjectTile :projectInfo="getProjects[0]"/>
-      <ProjectTile :projectInfo="getProjects[1]"/>
+    <div class="columns">
+
+      <div  class="column is-8">
+        <ProjectTile :projectInfo="getProjects[0]"/>
+      </div>
+      <div class="column is-4">
+          <ProjectDescripBox :projectInfo="getProjects[0]"/>
+      </div>
     </div>
 
-    <div class="tile is-parent">
-      <ProjectTile :projectInfo="getProjects[2]"/>
+    <div class="columns">
+      <div  class="column is-8">
+        <ProjectTile :projectInfo="getProjects[2]"/>
+      </div>
+      <div class="column is-4">
+        <ProjectDescripBox :projectInfo="getProjects[2]"/>
+      </div>
     </div>
 
-    <div class="tile is-parent">
-      <ProjectTile :projectInfo="getProjects[3]"/>
+    <div class="columns">
+      <div class="column is-8">
+        <ProjectTile :projectInfo="getProjects[3]"/>
+      </div>
+      <div class="column is-4">
+        <ProjectDescripBox :projectInfo="getProjects[3]"/>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -20,11 +36,13 @@
 /* eslint-disable vue/no-unused-components */
 
 import ProjectTile from '@/components/ProjectTile.vue';
+import ProjectDescripBox from '@/components/ProjectDescripBox.vue';
 
 export default {
   name: 'ProjectTiles',
   components: {
     ProjectTile,
+    ProjectDescripBox,
   },
   props: {},
   data() {
