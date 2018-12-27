@@ -4,14 +4,14 @@
 
     <div class="column">
       <div class="field has-addons">
-        <router-link class="page-link" :to="mediaLinks[5].url">
-          {{mediaLinks[5].website}}
+        <router-link class="page-link" class-active="active" to="/">
+          <p>home</p>
         </router-link>
-        <router-link class="page-link" :to="mediaLinks[3].url">
-          {{mediaLinks[3].website}}
+        <router-link class="page-link" class-active="active" to="/projects">
+          <p>projects</p>
         </router-link>
-        <router-link class="page-link" :to="mediaLinks[4].url">
-          {{mediaLinks[4].website}}
+        <router-link class="page-link" class-active="active" to="/about">
+          <p>about</p>
         </router-link>
 
         <MediaButton :link="mediaLinks[0]" icon="fab fa-github"/>
@@ -53,6 +53,24 @@ export default {
   .page-link {
     color: #444054;
     margin: auto 1rem auto 1rem;
+
+    background: linear-gradient(
+      to bottom, #f46036 0%,
+      #f46036 100%
+    ) repeat-x 0 100%;
+    background-size: 4px 0px;
+
+    text-decoration: none;
+    transition: background-size .2s;
+  }
+
+  a {
+    outline:0;
+  }
+
+  .router-link-exact-active{
+    background-size: 4px 50px;
+    cursor: pointer;
   }
 
 </style>
