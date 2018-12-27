@@ -46,10 +46,12 @@ export default {
 
   }
   .page-name{
+    margin: auto auto auto 1rem;
     color: #444054;
   }
 
   .j-title-container {
+
     color: #444054;
   }
 
