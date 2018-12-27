@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from '@/views/Home.vue';
-import HeroTitle from '@/components/HeroTitle.vue';
-import NavButtonRow from '@/components/NavButtonRow.vue';
-import UnderConstruction from '@/components/UnderConstruction.vue';
-import ProjectTiles from '@/components/ProjectTiles.vue';
+// Views
+const BaseView = () => import('@/views/BaseView.vue');
+
+// Sub-Views
+const UnderConstruction = () => import('@/components/UnderConstruction.vue');
+const ProjectTiles = () => import('@/components/ProjectTiles.vue');
+const JNav = () => import('@/components/JNav.vue');
 
 Vue.use(Router);
 
@@ -13,28 +15,30 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      component: BaseView,
       children: [
         {
           path: '',
-          name: 'HomePage',
+          name: 'home',
           components: {
-            'nav-left': HeroTitle,
-            'nav-right': NavButtonRow,
+            nav: JNav,
             'content-a': UnderConstruction,
           },
         },
+      ],
+    },
+    {
+      path: '/projects',
+      component: BaseView,
+      children: [
         {
-          path: '/projects',
+          path: '',
           name: 'projects',
           components: {
-            'nav-left': HeroTitle,
-            'nav-right': NavButtonRow,
+            nav: JNav,
             'content-a': ProjectTiles,
           },
         },
-
       ],
     },
   ],

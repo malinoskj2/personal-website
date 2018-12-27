@@ -39,6 +39,7 @@ export default {
   .page-name:hover {
     cursor: pointer;
   }
+
   h2 {
     position: absolute;
     top: 150%;
@@ -47,15 +48,14 @@ export default {
   .page-name{
     color: #444054;
   }
-  .j-title-container {
 
+  .j-title-container {
     color: #444054;
-    filter: blur(.02rem);
   }
+
   .vue-typer >>> .custom.char.typed {
     color: #f46036;
     font-family: Utopia;
   }
-
 
 </style>
