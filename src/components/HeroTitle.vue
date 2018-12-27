@@ -2,17 +2,18 @@
 
 
         <div class="j-title-container">
-          <h1 class="title page-name" @click="goToHome">
+          <span class="page-name title" @click="goToHome">
             jessemalinosky.com
-          </h1>
-          <h2 class="subtitle">
-            <vue-typer text='🔥🔥🔥'
+          </span>
+
+          <span class="subtitle">
+            <vue-typer text='🔥'
                        initial-action='typing' :repeat="repeat"
                        :pre-type-delay="1200" caret-animation='solid'
                        class="typer"
             ></vue-typer>
+          </span>
 
-          </h2>
         </div>
 
 
@@ -53,6 +54,7 @@ export default {
   }
   .vue-typer >>> .custom.char.typed {
     color: #f46036;
+    font-family: Utopia;
   }
 
 
