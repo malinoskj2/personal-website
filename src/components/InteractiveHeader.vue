@@ -1,9 +1,8 @@
 <template>
   <section class="hero is-primary is-medium interactive-header">
     <!-- Hero head: will stick at the top -->
-    <div class="hero-head">
+    <div class="hero-head j-pseudo-nav">
       <div class="navbar-brand">
-
         <a id="back-button" @click="$router.go(-1)">
               <span class="icon is-medium has-text-info">
                 <i class="fas fa-arrow-left"></i>
@@ -56,6 +55,10 @@ export default {
 
   .fa-arrow-left {
     color:white;
+  }
+
+  .j-pseudo-nav{
+    position: fixed;
   }
 
   #back-button {
