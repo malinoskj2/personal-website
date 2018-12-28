@@ -2,7 +2,7 @@
 
     <div class="section">
 
-
+      <sequential-entrance fromBottom>
         <div class="j-project"
              v-for="(project) in getProjects"
              :key="project.name" >
@@ -21,6 +21,7 @@
 
           </div>
         </div>
+      </sequential-entrance>
 
     </div>
 
