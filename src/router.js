@@ -3,6 +3,7 @@ import Router from 'vue-router';
 
 // Views
 const BaseView = () => import('@/views/BaseView.vue');
+const NavLess = () => import('@/views/NavLess.vue');
 
 // Sub-Views
 const UnderConstruction = () => import('@/components/UnderConstruction.vue');
@@ -36,6 +37,19 @@ export default new Router({
           name: 'projects',
           components: {
             nav: JNav,
+            'content-a': ProjectTiles,
+          },
+        },
+      ],
+    },
+    {
+      path: '/about',
+      component: NavLess,
+      children: [
+        {
+          path: '',
+          name: 'about',
+          components: {
             'content-a': ProjectTiles,
           },
         },
