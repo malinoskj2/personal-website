@@ -10,6 +10,9 @@ const UnderConstruction = () => import('@/components/UnderConstruction.vue');
 const ProjectTiles = () => import('@/components/ProjectTiles.vue');
 const JNav = () => import('@/components/JNav.vue');
 
+// About page
+const InteractiveHeader = () => import('@/components/InteractiveHeader.vue');
+
 Vue.use(Router);
 
 export default new Router({
@@ -50,7 +53,7 @@ export default new Router({
           path: '',
           name: 'about',
           components: {
-            'content-a': ProjectTiles,
+            'content-a': InteractiveHeader,
           },
         },
       ],

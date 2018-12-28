@@ -1,11 +1,9 @@
 <template>
   <div class="navless" >
 
-    <section class="section">
-      <div class="container">
+
         <router-view name="content-a"></router-view>
-      </div>
-    </section>
+
 
     <section class="section">
       <div class="container">
