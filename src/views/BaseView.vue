@@ -1,5 +1,5 @@
 <template>
-  <div class="home" >
+  <div class="base-view" >
 
     <router-view name="nav" class=""></router-view>
 
@@ -16,7 +16,7 @@
 // @ is an alias to /src
 
 export default {
-  name: 'home',
+  name: 'BaseView',
   data() {
     return {};
   },
