@@ -2,19 +2,18 @@
   <div class="navless" >
 
 
-        <router-view name="content-a"></router-view>
-
+      <div class="hero-head j-pseudo-nav">
+        <div class="navbar-brand">
+          <a id="back-button" @click="$router.go(-1)">
+              <span class="icon is-medium has-text-info">
+                <i class="fas fa-arrow-left"></i>
+              </span>
+          </a>
+        </div>
+      </div>
 
     <section class="section">
-      <div class="container">
-        <router-view name="content-b"></router-view>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <router-view name="content-c"></router-view>
-      </div>
+      <router-view name="content-a"></router-view>
     </section>
 
   </div>
@@ -40,6 +39,18 @@ export default {
   },
 };
 </script>
-<style>
+<style >
+  .navless {
+    background: #393d3f;
+  }
 
+  .fa-arrow-left {
+    color:white;
+  }
+
+
+  .j-pseudo-nav{
+    margin: 1rem 0rem 0rem 1rem;
+    position: fixed;
+  }
 </style>

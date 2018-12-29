@@ -22,4 +22,5 @@ yarn-error.log*
 
 # Added
 *env
+src/resources/*
 Blank.vue

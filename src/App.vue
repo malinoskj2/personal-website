@@ -44,7 +44,7 @@ export default {
 
   html {
     font-size: 100%;
-    min-height: 2528px;
+
   }
 
   #app {

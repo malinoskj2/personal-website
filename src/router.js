@@ -9,9 +9,8 @@ const NavLess = () => import('@/views/NavLess.vue');
 const UnderConstruction = () => import('@/components/UnderConstruction.vue');
 const ProjectTiles = () => import('@/components/ProjectTiles.vue');
 const JNav = () => import('@/components/JNav.vue');
-
-// About page
 const InteractiveHeader = () => import('@/components/InteractiveHeader.vue');
+
 
 Vue.use(Router);
 

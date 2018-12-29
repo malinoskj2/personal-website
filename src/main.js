@@ -16,10 +16,7 @@ import store from './store';
 // use components from plugins
 Vue.use(VueTyperPlugin);
 Vue.use(SequentialEntrance);
-Vue.use(ScrollView, {
-  throttle: 100,
-  callbacks: [],
-});
+Vue.use(ScrollView);
 
 Vue.config.productionTip = false;
 
