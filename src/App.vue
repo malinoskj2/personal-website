@@ -6,8 +6,9 @@
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous">
 
-
-    <router-view/>
+    <transition name="page-opac-anim" mode="out-in">
+      <router-view/>
+    </transition>
 
   </div>
 </template>
@@ -67,4 +68,29 @@ export default {
   ::-moz-selection {
     background: #f46036; /* Gecko Browsers */
   }
+
+  .page-opac-anim-enter-active {
+    animation: 300ms translate-from-right ;
+  }
+  .page-opac-anim-leave-active {
+    animation: 300ms opac-fade-in reverse;
+  }
+  @keyframes translate-from-right {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes opac-fade-in {
+    0% {
+      filter: opacity(0%);
+    }
+    100% {
+      filter: opacity(100%)
+    }
+  }
+
 </style>
