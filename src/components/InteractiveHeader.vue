@@ -177,11 +177,11 @@ export default {
    margin-top: 120vh;
   }
   .about-page {
-    background: #393d3f;
+    background: #292f36;
   }
   #main-typer-container .vue-typer >>> .custom.char.typed {
 
-    font-family: Josefin sans;
+    font-family: Karla;
     /* if we can clip, do it */
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -216,7 +216,7 @@ export default {
 
   .j-card .vue-typer >>> .custom.char.typed {
     color: #393d3f;
-    font-family: Josefin sans;
+    font-family: Lato;
   }
 
   .j-card .vue-typer >>> .custom.caret {

@@ -1,7 +1,8 @@
-/* eslint-disable import/no-named-as-default-member,no-unused-vars,no-use-before-define */
+/* eslint-disable import/no-named-as-default-member,no-unused-vars,no-use-before-define,max-len,arrow-body-style */
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import _ from 'lodash';
 import { getRecentCommits, getRepos, getStatuses } from './api/api';
 
 Vue.use(Vuex);
@@ -69,6 +70,21 @@ export default new Vuex.Store({
     },
     getProjects(state, getters) {
       return state.projects;
+    },
+    // eslint-disable-next-line arrow-body-style
+    getProjectsFiltered: (state, getters) => (tags) => {
+      return state.projects.filter((project) => {
+        const languagesLow = Object.entries(project.languages)
+          .map(lang => lang[0].toLowerCase());
+        const tagsLow = tags.map(tag => tag.toLowerCase());
+        return _.difference(tagsLow, languagesLow).length === 0;
+      });
+    },
+    getAllTags(state, getters) {
+      const allTags = state.projects
+        .flatMap(project => Object.entries(project.languages).map(lang => lang[0]));
+
+      return Array.from(new Set(allTags));
     },
   },
   actions: {

@@ -26,7 +26,7 @@ export default {
 <style scoped>
   .icon-link {
     outline:none;
-    transform: scale(1.5);
+    transform: scale(1.2);
     color: #444054;
   }
   .icon-link:hover{

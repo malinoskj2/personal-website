@@ -41,7 +41,7 @@ export default {
 </script>
 <style >
   .navless {
-    background: #393d3f;
+    background: #292f36;
   }
 
   .fa-arrow-left {

@@ -2,25 +2,28 @@
   <div class="tile is-child j-card">
 
     <div class="title-line">
-      <span class="title has-text-black">{{projectInfo.name}} </span>
+        <span class="title">{{projectInfo.name}} </span>
+
+      <span id="time-update"
+            class="is-unselectable">
+        ~ updated {{lastPushed}}
+      </span>
+
+      <span class="icon is-small hover-card-to-se gh-icon">
+               <a :href="projectInfo.html_url">
+                 <i class="fab fa-github low-opac-till-hover"></i>
+               </a>
+      </span>
     </div>
 
-    <p class="has-text-black">{{projectInfo.description}}</p>
-
+    <p class="description">{{projectInfo.description}}</p>
 
     <nav class="level is-clipped is-mobile">
 
       <div class="level-left">
         <div class="level-item">
 
-          <div class="tags">
-              <span class="">
-               <span class="tag is-black is-unselectable j-tag low-base-opac"
-                     v-for="(langCount, langName, index) in projectInfo.languages"
-                     :key="index"> {{langName}}</span>
 
-              </span>
-          </div>
         </div>
 
       </div>
@@ -28,9 +31,7 @@
 
       <div class="level-right">
         <div class="level-item">
-            <span id="time-update"
-                  class="is-unselectable is-pulled-right
-                    ">updated {{lastPushed}} </span>
+
         </div>
       </div>
 
@@ -57,26 +58,56 @@ export default {
       return moment(this.projectInfo.pushed_at).fromNow();
     },
   },
-  methods: {},
+  methods: {
+    tagClick(el, langName) {
+      this.$emit('tag-click', {
+        name: langName,
+      });
+    },
+  },
 };
 </script>
 
 <style scoped>
+  .description {
+    font-size: 1rem;
+    font-family: Karla;
+    line-height: 1rem;
+  }
+
+  .gh-icon {
+    transform: scale(.6);
+  }
+
+  .title {
+    letter-spacing: -2px;
+    color: #2455c3;
+    font-size: 1.5rem;
+    font-family: Karla;
+  }
+
+  .title:hover {
+    color: #444054;
+
+    background: linear-gradient(
+      to bottom, #f46036 0%,
+      #f46036 100%
+    ) repeat-x 0 100%;
+    background-size: 4px 10px;
+
+    text-decoration: none;
+    transition: background-size .2s;
+  }
 
   .j-card {
     background: transparent;
     border-radius: 2px;
     padding-bottom: 2rem;
-    border-bottom: 1px solid;
   }
 
-  .j-tag {
-    filter: opacity(.92);
+  .title-line:hover {
+    cursor: pointer;
   }
-  .tags {
-    margin-right: 1rem;
-  }
-
 
   a {
     color: inherit;
@@ -95,16 +126,19 @@ export default {
     filter: opacity(1)
   }
 
-  .low-base-opac {
-    filter: opacity(.8);
-  }
 
   #time-update {
+    margin-left: .25rem;
+    font-size: .8rem;
     filter: opacity(.8);
   }
 
   #time-update:hover {
     cursor: default;
+  }
+
+  .low-base-opac {
+    filter: opacity(.8);
   }
 
   .low-base-opac:hover {
@@ -117,7 +151,7 @@ export default {
   }
 
   .title-line {
-    margin-bottom: 1.5rem;
+
   }
 
 </style>

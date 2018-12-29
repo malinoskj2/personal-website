@@ -50,6 +50,7 @@ export default {
   .root {
     margin: auto;
   }
+
   .page-link {
     color: #444054;
     margin: auto 1rem auto 1rem;
