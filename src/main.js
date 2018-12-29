@@ -1,15 +1,25 @@
 import Vue from 'vue';
-import VueTyperPlugin from 'vue-typer';
 
+// plugins
+import VueTyperPlugin from 'vue-typer';
 import SequentialEntrance from 'vue-sequential-entrance';
+import ScrollView from 'vue-scrollview';
+
+// css
 import 'vue-sequential-entrance/vue-sequential-entrance.css';
 
+// vue stuff
 import App from './App.vue';
 import router from './router';
 import store from './store';
 
-Vue.use(SequentialEntrance);
+// use components from plugins
 Vue.use(VueTyperPlugin);
+Vue.use(SequentialEntrance);
+Vue.use(ScrollView, {
+  throttle: 100,
+  callbacks: [],
+});
 
 Vue.config.productionTip = false;
 
