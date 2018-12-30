@@ -1,7 +1,6 @@
 <template>
   <div class="navless" >
 
-
       <div class="hero-head j-pseudo-nav">
         <div class="navbar-brand">
           <a id="back-button" @click="$router.go(-1)">
@@ -48,9 +47,21 @@ export default {
     color:white;
   }
 
-
   .j-pseudo-nav{
     margin: 1rem 0rem 0rem 1rem;
     position: fixed;
+  }
+
+  #back-button {
+    padding: .5rem 0rem 0rem .5rem;
+    tranform-origin: 50% 50%;
+    transform: scale(1);
+    filter: opacity(.7);
+    transition: transform 240ms, filter 240ms;
+  }
+
+  #back-button:hover {
+    filter: opacity(1);
+    transform: scale(1.1);
   }
 </style>

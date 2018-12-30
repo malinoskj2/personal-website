@@ -1,9 +1,10 @@
 <template>
 
 
-        <div class="j-title-container">
-          <span class="page-name title" @click="goToHome">
-            jessemalinosky.com
+        <div>
+          <span >
+            <router-link class="page-name title"
+                         to="/">jessemalinosky.com</router-link>
           </span>
 
           <span class="subtitle">
@@ -23,14 +24,13 @@ export default {
   name: 'HeroTitle',
   props: {},
   data() {
-    return { repeat: 0 };
+    return {
+      repeat: 0,
+    };
   },
   computed: {
   },
   methods: {
-    goToHome() {
-      this.$router.push('/');
-    },
   },
 };
 </script>
@@ -40,18 +40,8 @@ export default {
     cursor: pointer;
   }
 
-  h2 {
-    position: absolute;
-    top: 150%;
-
-  }
   .page-name{
     margin: auto auto auto 1rem;
-    color: #444054;
-  }
-
-  .j-title-container {
-
     color: #444054;
   }
 
@@ -59,5 +49,4 @@ export default {
     color: #f46036;
     font-family: Utopia;
   }
-
 </style>
