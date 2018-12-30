@@ -31,14 +31,18 @@
             <div class="columns">
 
               <div  class="column is-8">
-                <transition appear name="lrgbox-trans">
-                  <ProjectDescripBox
-                    :projectInfo="project" @tag-click="updateActiveTags"/>
-                </transition>
+                <div class="columns">
+                  <div class="column is-12">
+                    <transition appear name="lrgbox-trans">
+                      <ProjectDescripBox
+                        :projectInfo="project" @tag-click="updateActiveTags"/>
+                    </transition>
+                  </div>
+                </div>
               </div>
 
               <div class="column is-4">
-                <ProjectTile class="prj-item" :projectInfo="project"/>
+
               </div>
 
             </div>
