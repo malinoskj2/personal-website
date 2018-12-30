@@ -141,8 +141,10 @@ export default {
     transition: all 1s;
   }
 
-  .section {
-    padding: 0rem 6rem 0rem 6rem;
+  @media (min-width:769px) {
+    .section {
+      padding: 0rem 6rem 0rem 6rem;
+    }
   }
 
   .j-tag {
