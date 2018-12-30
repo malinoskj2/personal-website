@@ -20,19 +20,6 @@
             </div>
 
     <div class="spacer-a"></div>
-    <scroll-view>
-
-      <template slot-scope="markers">
-        <scroll-marker
-          v-for="marker in markerNames"
-          :name="marker.name"
-          :key="marker.name"
-          :visible="markers[marker.name]"
-          :spacing="70"
-          @isVisible="markerAVisible(marker)"
-        ></scroll-marker>
-      </template>
-    </scroll-view>
 
 
   </div>
