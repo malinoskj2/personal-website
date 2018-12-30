@@ -6,7 +6,7 @@
       <div class="hero-body">
         <div class="container has-text-centered">
 
-          <h1 class="title who-header">
+          <h1 class="title who-header who-header-tall" :class="{cScale: mainTextSmall }">
             <div id="main-typer-container" ref="mainTyper">
               <vue-typer :text='typerMainText'
                          :repeat="0"
@@ -18,11 +18,42 @@
 
         </div>
       </div>
-    </div>
-    <intersect @enter="elementEntered" @leave="elementLeft">
-      <div :class="{'about-page-b': sectionBVisible}">
-        <h1>Test</h1>
+
+      <div class="container about-content">
+        <div class="columns">
+
+          <div class="column">
+            <transition name="left-card-anim">
+              <div v-if="cardLeftVisible" class="box j-card" key="about-card-left">
+                <vue-typer :text='typerLeftText'
+                           :repeat="0"
+                           :pre-type-delay="1200" caret-animation='solid'
+                           class="typer"
+                ></vue-typer>
+              </div>
+            </transition>
+          </div>
+
+          <div class="column">
+            <transition name="right-card-anim">
+              <div v-if="cardRightVisible" class="box j-card" key="about-card-right">
+                <vue-typer :text='typerRightText'
+                           :repeat="0"
+                           :pre-type-delay="1200" caret-animation='solid'
+                           class="typer"
+                ></vue-typer>
+              </div>
+            </transition>
+          </div>
+
+        </div>
       </div>
+
+
+    </div>
+
+    <intersect @enter="elementEntered" @leave="elementLeft">
+      <div></div>
     </intersect>
 
   </div>
@@ -30,9 +61,9 @@
 </template>
 
 <script>
-import { TimelineLite } from 'gsap';
+import { TweenLite } from 'gsap';
 import {
-  CSSPlugin, Back, Elastic, Expo,
+  CSSPlugin, Power3,
 } from 'gsap/all';
 import Intersect from 'vue-intersect';
 
@@ -45,7 +76,9 @@ export default {
       typerMainText: ['$whoami'],
       typerLeftText: ['➡ developer'],
       typerRightText: [' '],
-      sectionBVisible: false,
+      cardLeftVisible: false,
+      cardRightVisible: false,
+      mainTextSmall: true,
       timeLine: null,
       markerNames: [{ name: 'first', valSize: 0, valPosY: -10 },
         { name: 'second', valSize: 0.3, valPosY: -20 },
@@ -57,22 +90,60 @@ export default {
   computed: {},
   methods: {
     elementEntered() {
-      console.log('an element was entered');
-      this.sectionBVisible = true;
+      this.showBoxes();
+      this.positionHeaderSmall();
     },
     elementLeft() {
-      console.log('an element was left');
+      this.positionHeaderBig();
+    },
+    showBoxes() {
+      this.cardLeftVisible = true;
+      this.cardRightVisible = true;
+    },
+    positionHeaderSmall() {
+      const { mainTyper } = this.$refs;
+      TweenLite.to(mainTyper, 0.3, {
+        y: '-70rem',
+        scaleX: 0.33,
+        scaleY: 0.33,
+        ease: Power3.easeOut,
+      });
+    },
+    positionHeaderBig() {
+      const { mainTyper } = this.$refs;
+      TweenLite.to(mainTyper, 0.3, {
+        y: '0rem',
+        scaleX: 1,
+        scaleY: 1,
+        ease: Power3.easeOut,
+      });
     },
   },
 };
 </script>
 
 <style scoped>
-  .about-page-b {
-    color: red;
+  .j-card {
+    background: ghostwhite;
+    border-radius: 2px;
+    color: #f6f6f6;
+    min-height: 20rem;
   }
+
   .about-page {
-    min-height: 200rem;
+    min-height: 80rem;
+  }
+
+
+  .who-header{
+    position: relative;
+    left: 50%;
+    transform:translateX(-50%) translateY(10rem) scale(3);
+  }
+  @media (min-height:625px) {
+    .who-header-tall {
+      position: fixed;
+    }
   }
 
   .left-card-anim-enter-active{
@@ -85,30 +156,30 @@ export default {
   @keyframes left-card-frames {
     0%{
       filter: opacity(0);
-      transform: translateY(2rem);
+      transform: scale(2) translateX(-20rem) translateY(30rem);
     }
     25%{
       filter: opacity(1);
-      transform: translateY(1.5rem);
+      transform: scale(1.5) translateX(-15rem) translateY(20rem);
     }
     100%{
       filter: opacity(1);
-      transform: translateY(0rem);
+      transform: scale(1) translateX(0rem)translateY(0rem);
     }
   }
 
   @keyframes right-card-frames {
     0%{
       filter: opacity(0);
-      transform: translateY(-2rem);
+      transform: scale(2) translateX(20rem) translateY(30rem);
     }
     25%{
       filter: opacity(1);
-      transform: translateY(-1.5rem);
+      transform: scale(1.5) translateX(15rem) translateY(20rem);
     }
     100%{
       filter: opacity(1);
-      transform: translateY(0rem);
+      transform: scale(1) translateX(0rem)translateY(0rem);
     }
   }
 
@@ -135,7 +206,6 @@ export default {
     color: ghostwhite;
   }
 
-
   #main-typer-container .vue-typer >>> .custom.caret {
     width: 4px;
     background-color: ghostwhite;
@@ -151,10 +221,5 @@ export default {
     background-color: #393d3f;
   }
 
-  .who-header{
-    position: fixed;
-    left: 50%;
-    transform:translateX(-50%) translateY(10rem) scale(3);
-  }
 
 </style>

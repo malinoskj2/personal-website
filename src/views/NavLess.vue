@@ -41,6 +41,7 @@ export default {
 <style >
   .navless {
     background: #292f36;
+    overflow:hidden;
   }
 
   .fa-arrow-left {
