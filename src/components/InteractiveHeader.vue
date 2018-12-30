@@ -1,13 +1,13 @@
 <template>
 
-  <div>
+  <div class="about-page">
 
 
             <div class="hero-body">
               <div class="container has-text-centered">
 
                   <h1 class="title who-header">
-                    <div id="main-typer-container">
+                    <div id="main-typer-container" ref="mainTyper">
                       <vue-typer :text='typerMainText'
                                  :repeat="0"
                                  :pre-type-delay="1200" caret-animation='solid'
@@ -19,57 +19,20 @@
               </div>
             </div>
 
-          <div class="container about-content">
-            <div class="columns">
+    <div class="spacer-a"></div>
+    <scroll-view>
 
-              <div class="column">
-                <transition name="left-card-anim">
-                <div v-if="cardLeftVisible" class="box j-card" key="about-card-left">
-                  <vue-typer :text='typerLeftText'
-                             :repeat="0"
-                             :pre-type-delay="1200" caret-animation='solid'
-                             class="typer"
-                  ></vue-typer>
-                </div>
-                </transition>
-              </div>
-
-              <div class="column">
-                <transition name="right-card-anim">
-                  <div v-if="cardRightVisible" class="box j-card" key="about-card-right">
-                    <vue-typer :text='typerRightText'
-                               :repeat="0"
-                               :pre-type-delay="1200" caret-animation='solid'
-                               class="typer"
-                    ></vue-typer>
-                  </div>
-                </transition>
-              </div>
-
-            </div>
-          </div>
-
-
-    <Scroll-view :offset="20">
       <template slot-scope="markers">
         <scroll-marker
-          name="sectionA"
-          key="sectionA"
-          :visible="markers.sectionA"
-          :spacing="0"
-          @isVisible="markerAVisible"
-          @isNotVisible="markerANotVisible">
-        </scroll-marker>
-        <scroll-marker
-          name="sectionB"
-          key="sectionB"
-          :visible="markers.sectionB"
-          :spacing="240"
-          @isVisible="markerBVisible"
-          @isNotVisible="markerBNotVisible">
-        </scroll-marker>
+          v-for="marker in markerNames"
+          :name="marker.name"
+          :key="marker.name"
+          :visible="markers[marker.name]"
+          :spacing="70"
+          @isVisible="markerAVisible(marker)"
+        ></scroll-marker>
       </template>
-    </Scroll-view>
+    </scroll-view>
 
 
   </div>
@@ -77,7 +40,10 @@
 </template>
 
 <script>
-
+import { TimelineLite } from 'gsap';
+import {
+  CSSPlugin, Back, Elastic, Expo,
+} from 'gsap/all';
 
 export default {
   name: 'InteractiveHeader',
@@ -89,34 +55,43 @@ export default {
       typerMainText: ['$whoami'],
       typerLeftText: ['➡ developer'],
       typerRightText: [' '],
-      cardLeftVisible: false,
-      cardRightVisible: false,
-      smallHeader: false,
+      timeLine: null,
+      markerNames: [{ name: 'first', valSize: 0, valPosY: -10 },
+        { name: 'second', valSize: 0.3, valPosY: -20 },
+        { name: 'third', valSize: 0.4, valPosY: -30 },
+        { name: 'fourth', valSize: 0.6, valPosY: -40 },
+        { name: 'fifth', valSize: 1, valPosY: -50 }],
     };
   },
   computed: {},
+  mounted() {
+    this.timeline = new TimelineLite({ paused: true });
+    const { mainTyper } = this.$refs;
+
+    this.timeline.to(mainTyper, 0.5, {
+      scaleX: 0.4,
+      scaleY: 0.4,
+      y: -50,
+    });
+  },
   methods: {
-    markerAVisible(name) {
-      this.smallHeader = true;
+    markerAVisible(marker) {
+      console.log(`Marker${marker.name} visible`);
+
+      this.timeline.progress(marker.valSize, false);
     },
-    markerANotVisible(name) {
-      this.smallHeader = false;
-    },
-    markerBVisible(name) {
-      this.cardLeftVisible = true;
-      this.cardRightVisible = true;
-      this.$nextTick(() => {
-        this.cardLeftVisible = true;
-        this.cardRightVisible = true;
-      });
-    },
-    markerBNotVisible(name) {
-    },
+
   },
 };
 </script>
 
 <style scoped>
+  .spacer-a {
+    min-height: 100rem;
+  }
+  .about-page {
+    min-height: 200rem;
+  }
 
   .left-card-anim-enter-active{
     animation: 1s left-card-frames forwards;
