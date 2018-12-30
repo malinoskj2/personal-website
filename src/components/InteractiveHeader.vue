@@ -1,26 +1,29 @@
 <template>
 
-  <div class="about-page">
+  <div>
 
+    <div class="about-page">
+      <div class="hero-body">
+        <div class="container has-text-centered">
 
-            <div class="hero-body">
-              <div class="container has-text-centered">
-
-                  <h1 class="title who-header">
-                    <div id="main-typer-container" ref="mainTyper">
-                      <vue-typer :text='typerMainText'
-                                 :repeat="0"
-                                 :pre-type-delay="1200" caret-animation='solid'
-                                 class="typer"
-                      ></vue-typer>
-                    </div>
-                  </h1>
-
-              </div>
+          <h1 class="title who-header">
+            <div id="main-typer-container" ref="mainTyper">
+              <vue-typer :text='typerMainText'
+                         :repeat="0"
+                         :pre-type-delay="1200" caret-animation='solid'
+                         class="typer"
+              ></vue-typer>
             </div>
+          </h1>
 
-    <div class="spacer-a"></div>
-
+        </div>
+      </div>
+    </div>
+    <intersect @enter="elementEntered" @leave="elementLeft">
+      <div :class="{'about-page-b': sectionBVisible}">
+        <h1>Test</h1>
+      </div>
+    </intersect>
 
   </div>
 
@@ -31,17 +34,18 @@ import { TimelineLite } from 'gsap';
 import {
   CSSPlugin, Back, Elastic, Expo,
 } from 'gsap/all';
+import Intersect from 'vue-intersect';
 
 export default {
   name: 'InteractiveHeader',
-  components: {
-  },
+  components: { Intersect },
   props: {},
   data() {
     return {
       typerMainText: ['$whoami'],
       typerLeftText: ['➡ developer'],
       typerRightText: [' '],
+      sectionBVisible: false,
       timeLine: null,
       markerNames: [{ name: 'first', valSize: 0, valPosY: -10 },
         { name: 'second', valSize: 0.3, valPosY: -20 },
@@ -51,30 +55,21 @@ export default {
     };
   },
   computed: {},
-  mounted() {
-    this.timeline = new TimelineLite({ paused: true });
-    const { mainTyper } = this.$refs;
-
-    this.timeline.to(mainTyper, 0.5, {
-      scaleX: 0.4,
-      scaleY: 0.4,
-      y: -50,
-    });
-  },
   methods: {
-    markerAVisible(marker) {
-      console.log(`Marker${marker.name} visible`);
-
-      this.timeline.progress(marker.valSize, false);
+    elementEntered() {
+      console.log('an element was entered');
+      this.sectionBVisible = true;
     },
-
+    elementLeft() {
+      console.log('an element was left');
+    },
   },
 };
 </script>
 
 <style scoped>
-  .spacer-a {
-    min-height: 100rem;
+  .about-page-b {
+    color: red;
   }
   .about-page {
     min-height: 200rem;
