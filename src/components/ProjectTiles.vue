@@ -6,31 +6,20 @@
           <div class="column">
             <div class="field is-grouped is-grouped-multiline">
 
-              <div v-for="(tag,index) in getTagsWithState"  :key="index"
-                   class="control"
-                   @click="updateActiveTags({name: tag.name})">
 
-                <div class="tags has-addons">
-                  <span class="tag is-unselectable j-tag low-base-opac">{{tag.name}}</span>
-
-                  <transition name="active-tag" mode="out-in">
-                    <a v-if="tag.isActive" class="tag is-delete"></a>
-                  </transition>
-                </div>
-
-              </div>
             </div>
           </div>
         </div>
 
-        <sequential-entrance animation="fadeInUp" delay="100">
-          <div class="j-project"
-               v-for="(project) in projectsFiltered"
-               :key="project.name" >
 
             <div class="columns">
 
               <div  class="column is-8">
+                <sequential-entrance animation="fadeInUp" delay="100">
+                <div class="j-project"
+                     v-for="(project) in projectsFiltered"
+                     :key="project.name" >
+
                 <div class="columns">
                   <div class="column is-12">
                     <transition appear name="lrgbox-trans">
@@ -40,14 +29,30 @@
                   </div>
                 </div>
               </div>
+              </sequential-entrance>
+              </div>
 
               <div class="column is-4">
+                <h1 id="lang-header">Languages</h1>
+
+                <span v-for="(tag,index) in getTagsWithState"  :key="index"
+                      class="control"
+                     @click="updateActiveTags({name: tag.name})">
+
+                  <span class="has-addons">
+                    <span class="tag is-unselectable j-tag low-base-opac j-tag-group"
+                    :class="{'j-active-tag': tag.isActive}">{{tag.name}}</span>
+                  </span>
+
+                </span>
+
+                <h1 id="tech-header">Tech</h1>
 
               </div>
 
-            </div>
+
           </div>
-        </sequential-entrance>
+
 
       </div>
 
@@ -108,6 +113,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+  .j-active-tag {
+    background: #292f36;
+    color: ghostwhite;
+  }
+
+  #lang-header {
+    margin-bottom: .5rem;
+  }
+
+  .j-tag-group {
+    margin: 0rem .5rem .25rem 0rem;
+  }
+
+  h1 {
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
   .tag{
     border: solid 1px #292f36;
   }
@@ -120,24 +145,8 @@ export default {
     padding: 0rem 6rem 0rem 6rem;
   }
 
-  .active-tag-enter-active{
-    transform-origin: 0% 0%;
-    animation: 160ms tag-grow-in cubic-bezier(0.455, 0.030, 0.515, 0.955);
-  }
-  .active-tag-leave-active{
-    transform-origin: 0% 0%;
-    animation: 160ms tag-grow-in cubic-bezier(0.455, 0.030, 0.515, 0.955) reverse;
-  }
-  @keyframes tag-grow-in {
-    0%{
-      transform: scaleX(0)
-    }
-    100%{
-      transform: scaleX(1);
-    }
-  }
-
   .j-tag {
+    transition: color .3s ease-in-out;
     filter: opacity(.92);
   }
   .low-base-opac {
