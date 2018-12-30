@@ -14,7 +14,6 @@
 </template>
 <script>
 
-
 export default {
   name: 'App',
   props: {},
@@ -22,8 +21,6 @@ export default {
     return {};
   },
   created() {
-    //   this.$store.dispatch('loadRecentCommits'); // Load git commits
-    //  this.$store.dispatch('loadRecentStatuses'); // Load mastodon statuses
     this.$store.dispatch('initProjects');
   },
   mounted() {
@@ -46,7 +43,6 @@ export default {
 
   html {
     font-size: 100%;
-
   }
 
   #app {
@@ -57,17 +53,8 @@ export default {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  #nav a {
-    font-weight: bold;
-    color: #2c3e50;
-  }
-
   ::selection {
-    background: #f46036; /* WebKit/Blink Browsers */
-  }
-
-  ::-moz-selection {
-    background: #f46036; /* Gecko Browsers */
+    background: #f46036;
   }
 
   .page-opac-anim-enter-active {
