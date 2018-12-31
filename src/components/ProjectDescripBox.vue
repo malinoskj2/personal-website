@@ -51,7 +51,9 @@ export default {
     projectInfo: Object,
   },
   data() {
-    return {};
+    return {
+
+    };
   },
   computed: {
     lastPushed() {
@@ -59,11 +61,7 @@ export default {
     },
   },
   methods: {
-    tagClick(el, langName) {
-      this.$emit('tag-click', {
-        name: langName,
-      });
-    },
+
   },
 };
 </script>

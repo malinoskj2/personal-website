@@ -25,7 +25,7 @@
                   <div class="column is-12">
                     <transition appear name="lrgbox-trans">
                       <ProjectDescripBox
-                        :projectInfo="project" @tag-click="updateActiveTags"/>
+                        :projectInfo="project"/>
                     </transition>
                   </div>
                 </div>
@@ -34,18 +34,8 @@
               </div>
 
               <div class="column is-4">
-                <h1 id="lang-header">Languages</h1>
-
-                <span v-for="(tag,index) in getTagsWithState"  :key="index"
-                      class="control"
-                     @click="updateActiveTags({name: tag.name})">
-
-                  <span class="has-addons">
-                    <span class="tag is-unselectable j-tag low-base-opac j-tag-group"
-                    :class="{'j-active-tag': tag.isActive}">{{tag.name}}</span>
-                  </span>
-
-                </span>
+                <TagGroup groupTitle="Languages"
+                          @tag-click="updateActiveTags"/>
 
                 <h1 id="tech-header">Tech</h1>
 
@@ -65,12 +55,14 @@
 import { mapGetters } from 'vuex';
 import ProjectTile from '@/components/ProjectTile.vue';
 import ProjectDescripBox from '@/components/ProjectDescripBox.vue';
+import TagGroup from '@/components/TagGroup.vue';
 
 export default {
   name: 'ProjectTiles',
   components: {
     ProjectTile,
     ProjectDescripBox,
+    TagGroup,
   },
   props: {},
   data() {
@@ -89,15 +81,7 @@ export default {
     projectsFiltered() {
       return this.$store.getters.getProjectsFiltered(this.activeTags);
     },
-    getTagsWithState() {
-      return this.$store.getters.getAllTags.map((tag) => {
-        const isActive = this.activeTags.includes(tag);
-        return {
-          name: tag,
-          isActive,
-        };
-      });
-    },
+
   },
   mounted() {
     this.$nextTick(() => {
@@ -112,41 +96,11 @@ export default {
         this.activeTags.push(payload.name);
       }
     },
-    printAllTags() {
-      this.$store.getters.getAllTags.forEach(tag => console.log(tag));
-    },
   },
 };
 </script>
 
 <style scoped>
-
-  .j-active-tag {
-    background: #292f36;
-    color: ghostwhite;
-  }
-
-  #lang-header {
-    margin-bottom: .5rem;
-  }
-
-  .j-tag-group {
-    margin: 0rem .5rem .25rem 0rem;
-  }
-
-  h1 {
-    font-family: Lato;
-    font-weight: 700;
-    font-size: 16px;
-  }
-
-  .tag{
-    border: solid 1px #292f36;
-  }
-
-  .has-addons {
-    transition: all 1s;
-  }
 
   @media (min-width:769px) {
     .section {
@@ -154,18 +108,6 @@ export default {
     }
   }
 
-  .j-tag {
-    transition: color .3s ease-in-out;
-    filter: opacity(.92);
-  }
-  .low-base-opac {
-    filter: opacity(.8);
-  }
-
-  .low-base-opac:hover {
-    filter: opacity(1);
-    cursor: pointer;
-  }
 
   @-webkit-keyframes fadeInUp {
     from {
