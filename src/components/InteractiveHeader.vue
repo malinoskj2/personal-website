@@ -110,13 +110,6 @@ export default {
       });
     },
     positionHeaderBig() {
-      const { mainTyper } = this.$refs;
-      TweenLite.to(mainTyper, 0.3, {
-        y: '0rem',
-        scaleX: 1,
-        scaleY: 1,
-        ease: Power3.easeOut,
-      });
     },
   },
 };
