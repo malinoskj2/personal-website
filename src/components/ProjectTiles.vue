@@ -12,8 +12,9 @@
         </div>
 
 
-            <div class="columns">
-
+            <div  class="columns"
+                  :style="{'min-height': dynamicMin +'px'}"
+            ref="projectList">
               <div  class="column is-8">
                 <sequential-entrance animation="fadeInUp" delay="100">
                 <div class="j-project"
@@ -74,6 +75,7 @@ export default {
   props: {},
   data() {
     return {
+      dynamicMin: 0,
       activeTags: [],
     };
   },
@@ -97,6 +99,11 @@ export default {
       });
     },
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.dynamicMin = this.$refs.projectList.offsetHeight;
+    });
+  },
   methods: {
     updateActiveTags(payload) {
       if (this.activeTags.includes(payload.name)) {
@@ -112,7 +119,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
   .j-active-tag {
     background: #292f36;
