@@ -7,7 +7,8 @@
     <ProjectTiles/>
 
     <div class="column is-4">
-      <TagGroup groupTitle="Languages"/>
+      <TagGroup groupTitle="Languages" :tagsWithState="tagsWithState"
+      @tag-click="updateActiveTags"/>
       <h1 id="tech-header">Tech</h1>
 
     </div>
@@ -35,8 +36,16 @@ export default {
       this.dynamicMin = this.$refs.projectList.offsetHeight;
     });
   },
-  computed: {},
-  methods: {},
+  computed: {
+    tagsWithState() {
+      return this.$store.getters.getTagsWithState;
+    },
+  },
+  methods: {
+    updateActiveTags(payload) {
+      this.$store.commit('updateActiveTags', payload);
+    },
+  },
 };
 </script>
 

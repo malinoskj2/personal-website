@@ -2,9 +2,9 @@
   <div>
     <h1 id="lang-header">{{groupTitle}}</h1>
 
-    <span v-for="(tag,index) in getTagsWithState" :key="index"
+    <span v-for="(tag,index) in tagsWithState" :key="index"
           class="control"
-          @click="updateActiveTags(tag)">
+          @click="$emit('tag-click',tag)">
 
       <span class="has-addons">
         <span class="tag is-unselectable low-base-opac"
@@ -19,6 +19,7 @@
 export default {
   name: 'TagGroup',
   props: {
+    tagsWithState: Array,
     groupTitle: String,
   },
   data() {
@@ -26,14 +27,9 @@ export default {
     };
   },
   computed: {
-    getTagsWithState() {
-      return this.$store.getters.getTagsWithState;
-    },
+
   },
   methods: {
-    updateActiveTags(payload) {
-      this.$store.commit('updateActiveTags', payload);
-    },
   },
 };
 </script>
