@@ -6,7 +6,7 @@
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous">
 
-    <transition name="page-opac-anim" mode="out-in">
+    <transition :name="routeTransition" mode="out-in">
       <router-view/>
     </transition>
 
@@ -18,7 +18,9 @@ export default {
   name: 'App',
   props: {},
   data() {
-    return {};
+    return {
+      routeTransition: '',
+    };
   },
   created() {
 
@@ -28,6 +30,15 @@ export default {
   },
   computed: {},
   methods: {},
+  watch: {
+    $route(to, from) {
+      if (from.name) {
+        this.routeTransition = 'page-opac-anim';
+      } else {
+        this.routeTransition = '';
+      }
+    },
+  },
 };
 </script>
 <style>
