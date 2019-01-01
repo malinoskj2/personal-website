@@ -42,14 +42,13 @@
 /* eslint-disable vue/no-unused-components */
 
 import { mapGetters } from 'vuex';
-import ProjectTile from '@/components/ProjectTile.vue';
 import ProjectDescripBox from '@/components/ProjectDescripBox.vue';
 import TagGroup from '@/components/TagGroup.vue';
 
 export default {
   name: 'ProjectTiles',
   components: {
-    ProjectTile,
+
     ProjectDescripBox,
     TagGroup,
   },

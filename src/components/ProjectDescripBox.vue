@@ -22,7 +22,10 @@
 </template>
 
 <script>
-import moment from 'moment';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
 
 export default {
   name: 'ProjectDescripBox',
@@ -36,7 +39,7 @@ export default {
   },
   computed: {
     lastPushed() {
-      return moment(this.projectInfo.pushed_at).fromNow();
+      return dayjs(this.projectInfo.pushed_at).fromNow();
     },
   },
   methods: {
