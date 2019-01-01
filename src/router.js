@@ -5,6 +5,8 @@ import Router from 'vue-router';
 const BaseView = () => import('@/views/BaseView.vue');
 const NavLess = () => import('@/views/NavLess.vue');
 
+const ProjectsPage = () => import('@/views/ProjectsPage.vue');
+
 // Sub-Views
 const UnderConstruction = () => import('@/components/UnderConstruction.vue');
 const ProjectTiles = () => import('@/components/ProjectTiles.vue');
@@ -42,7 +44,7 @@ export default new Router({
           name: 'projects',
           components: {
             nav: JNav,
-            'content-a': ProjectTiles,
+            'content-a': ProjectsPage,
           },
         },
       ],

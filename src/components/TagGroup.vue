@@ -4,7 +4,7 @@
 
     <span v-for="(tag,index) in getTagsWithState" :key="index"
           class="control"
-          @click="tagClick(tag)">
+          @click="updateActiveTags(tag)">
 
       <span class="has-addons">
         <span class="tag is-unselectable low-base-opac"
@@ -23,38 +23,16 @@ export default {
   },
   data() {
     return {
-      activeTags: [],
     };
   },
   computed: {
     getTagsWithState() {
-      console.log(this.$store.getters.getAllTags);
-      return this.$store.getters.getAllTags.map((tag) => {
-        const isActive = this.activeTags.includes(tag);
-        return {
-          name: tag,
-          isActive,
-        };
-      });
+      return this.$store.getters.getTagsWithState;
     },
-
   },
   methods: {
     updateActiveTags(payload) {
-      if (this.activeTags.includes(payload.name)) {
-        this.activeTags = this.activeTags.filter(tagName => tagName !== payload.name);
-      } else {
-        this.activeTags.push(payload.name);
-      }
-    },
-    tagClick(tag) {
-      console.log(`the tag${tag.name} was clicked`);
-      const payload = {
-        name: tag.name,
-      };
-      this.updateActiveTags(payload);
-
-      this.$emit('tag-click', payload);
+      this.$store.commit('updateActiveTags', payload);
     },
   },
 };

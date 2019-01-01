@@ -1,10 +1,4 @@
 <template>
-
-      <div class="section">
-
-            <div  class="columns"
-                  :style="{'min-height': dynamicMin +'px'}"
-            ref="projectList">
               <div  class="column is-8">
                 <sequential-entrance animation="fadeInUp" delay="200">
                 <div class="j-project"
@@ -22,79 +16,39 @@
               </div>
               </sequential-entrance>
               </div>
-
-              <div class="column is-4">
-                <TagGroup groupTitle="Languages"
-                          @tag-click="updateActiveTags"/>
-                <h1 id="tech-header">Tech</h1>
-
-              </div>
-
-
-          </div>
-
-
-      </div>
-
 </template>
 
 <script>
-/* eslint-disable vue/no-unused-components */
-
-import { mapGetters } from 'vuex';
 import ProjectDescripBox from '@/components/ProjectDescripBox.vue';
-import TagGroup from '@/components/TagGroup.vue';
+
 
 export default {
   name: 'ProjectTiles',
   components: {
-
     ProjectDescripBox,
-    TagGroup,
   },
   props: {},
   data() {
     return {
-      dynamicMin: 0,
-      activeTags: [],
     };
   },
   computed: {
-
     getProjects() {
       const projects = this.$store.getters.getProjects;
       return projects;
     },
     // If a project does not contain all active tags it is not included
     projectsFiltered() {
-      return this.$store.getters.getProjectsFiltered(this.activeTags);
+      return this.$store.getters.getProjectsFiltered;
     },
-
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.dynamicMin = this.$refs.projectList.offsetHeight;
-    });
   },
   methods: {
-    updateActiveTags(payload) {
-      if (this.activeTags.includes(payload.name)) {
-        this.activeTags = this.activeTags.filter(tagName => tagName !== payload.name);
-      } else {
-        this.activeTags.push(payload.name);
-      }
-    },
+
   },
 };
 </script>
 
 <style scoped>
-
-  @media (min-width:769px) {
-    .section {
-      padding: 0rem 6rem 0rem 6rem;
-    }
-  }
 
   @keyframes fadeInUp {
     from {

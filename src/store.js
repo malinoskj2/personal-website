@@ -40,6 +40,7 @@ export default new Vuex.Store({
     eventsBundled: [],
     projects: [],
     links: getEnvLinks(),
+    activeTags: [],
   },
   mutations: {
     // link contains the website name + url
@@ -59,6 +60,13 @@ export default new Vuex.Store({
     setProjects(state, payload) {
       state.projects = payload.projects;
     },
+    updateActiveTags(state, payload) {
+      if (state.activeTags.includes(payload.name)) {
+        state.activeTags = state.activeTags.filter(tagName => tagName !== payload.name);
+      } else {
+        state.activeTags.push(payload.name);
+      }
+    },
   },
   getters: {
     getLinks: state => state.links,
@@ -72,7 +80,8 @@ export default new Vuex.Store({
       return state.projects;
     },
     // eslint-disable-next-line arrow-body-style
-    getProjectsFiltered: (state, getters) => (tags) => {
+    getProjectsFiltered(state, getters) {
+      const tags = state.activeTags;
       return state.projects.filter((project) => {
         const languagesLow = Object.entries(project.languages)
           .map(lang => lang[0].toLowerCase());
@@ -85,6 +94,15 @@ export default new Vuex.Store({
         .flatMap(project => Object.entries(project.languages).map(lang => lang[0]));
 
       return Array.from(new Set(allTags));
+    },
+    getTagsWithState(state, getters) {
+      return getters.getAllTags.map((tag) => {
+        const isActive = state.activeTags.includes(tag);
+        return {
+          name: tag,
+          isActive,
+        };
+      });
     },
   },
   actions: {
