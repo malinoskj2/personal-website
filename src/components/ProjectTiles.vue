@@ -26,7 +26,6 @@
               <div class="column is-4">
                 <TagGroup groupTitle="Languages"
                           @tag-click="updateActiveTags"/>
-
                 <h1 id="tech-header">Tech</h1>
 
               </div>

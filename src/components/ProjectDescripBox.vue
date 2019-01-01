@@ -2,14 +2,14 @@
   <div class="tile is-child j-card">
 
     <div class="title-line">
-        <span class="title">{{projectInfo.name}} </span>
+      <span class="title">{{projectInfo.name}} </span>
 
       <span id="time-update"
             class="is-unselectable">
         ~ updated {{lastPushed}}
       </span>
 
-      <span class="icon is-small hover-card-to-se gh-icon">
+      <span class="icon is-small gh-icon">
                <a :href="projectInfo.html_url">
                  <i class="fab fa-github low-opac-till-hover"></i>
                </a>
@@ -17,27 +17,6 @@
     </div>
 
     <p class="description">{{projectInfo.description}}</p>
-
-    <nav class="level is-clipped is-mobile">
-
-      <div class="level-left">
-        <div class="level-item">
-
-
-        </div>
-
-      </div>
-
-
-      <div class="level-right">
-        <div class="level-item">
-
-        </div>
-      </div>
-
-
-    </nav>
-
 
   </div>
 </template>
@@ -111,20 +90,6 @@ export default {
     color: inherit;
   }
 
-  .hover-card-to-see {
-    filter: opacity(0);
-    transition: filter 300ms ease-in-out;
-  }
-
-  .j-card:hover .hover-card-to-see {
-    filter: opacity(1);
-  }
-
-  .j-card hover-card-to-see:hover {
-    filter: opacity(1)
-  }
-
-
   #time-update {
     margin-left: .25rem;
     font-size: .8rem;
@@ -135,21 +100,5 @@ export default {
     cursor: default;
   }
 
-  .low-base-opac {
-    filter: opacity(.8);
-  }
-
-  .low-base-opac:hover {
-    filter: opacity(1);
-    cursor: pointer;
-  }
-
-  .level {
-    margin-top: 1rem;
-  }
-
-  .title-line {
-
-  }
 
 </style>
