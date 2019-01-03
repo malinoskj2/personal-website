@@ -24,3 +24,9 @@ yarn-error.log*
 *env
 src/resources/*
 Blank.vue
+
+# Rust stuff
+src/lib/target/*
+src/lib/wasm-pack.log
+src/lib/bin/*
+src/lib/pkg/*

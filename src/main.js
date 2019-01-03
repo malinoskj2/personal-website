@@ -16,6 +16,12 @@ import store from './store';
 Vue.use(VueTyperPlugin);
 Vue.use(SequentialEntrance);
 
+
+const wasmLib = import('./lib/pkg');
+
+wasmLib
+  .then(m => m.greet('World!'));
+
 Vue.config.productionTip = false;
 
 new Vue({
