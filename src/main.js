@@ -20,7 +20,11 @@ Vue.use(SequentialEntrance);
 const wasmLib = import('./lib/pkg');
 
 wasmLib
-  .then(m => m.greet('World!'));
+  .then(m => m.run2())
+  .then((jsonResult) => {
+    console.log('successfully received the json result');
+    console.log(`result: ${jsonResult[0].name}`);
+  });
 
 Vue.config.productionTip = false;
 
