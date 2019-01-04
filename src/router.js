@@ -12,7 +12,7 @@ const UnderConstruction = () => import('@/components/UnderConstruction.vue');
 const ProjectTiles = () => import('@/components/ProjectTiles.vue');
 const JNav = () => import('@/components/JNav.vue');
 const InteractiveHeader = () => import('@/components/InteractiveHeader.vue');
-
+const JFooter = () => import('@/components/JFooter.vue');
 
 Vue.use(Router);
 
@@ -31,6 +31,7 @@ export default new Router({
           components: {
             nav: JNav,
             'content-a': UnderConstruction,
+            footer: JFooter,
           },
         },
       ],
@@ -45,6 +46,7 @@ export default new Router({
           components: {
             nav: JNav,
             'content-a': ProjectsPage,
+            footer: JFooter,
           },
         },
       ],
