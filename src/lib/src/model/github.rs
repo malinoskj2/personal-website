@@ -12,7 +12,7 @@ pub struct Repo {
     contributors_url: String,
     contribNum: u32,
     topics: Vec<String>,
-    languages: HashMap<String,u32>,
+    languages: HashMap<String, u32>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]

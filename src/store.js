@@ -3,7 +3,6 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import _ from 'lodash';
-import { getRecentCommits, getRepos, getStatuses } from './api/api';
 
 Vue.use(Vuex);
 
@@ -36,6 +35,7 @@ function getEnvLinks() {
 
 export default new Vuex.Store({
   state: {
+    api: null,
     events: [],
     eventsBundled: [],
     projects: [],
@@ -66,6 +66,9 @@ export default new Vuex.Store({
       } else {
         state.activeTags.push(payload.name);
       }
+    },
+    setApi(state, payload) {
+      state.api = payload.api;
     },
   },
   getters: {
@@ -106,8 +109,14 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async initProjects({ commit }) {
-      commit('setProjects', { projects: await getRepos() });
+    async initApi({ commit, state }) {
+      const wasmLib = await import('./lib/pkg');
+      const api = new wasmLib.Api(process.env.VUE_APP_API_BASE, true);
+      console.log(api);
+      commit('setApi', { api });
+    },
+    async initProjects({ commit, state }) {
+      commit('setProjects', { projects: await state.api.get_repos() });
     },
   },
 });

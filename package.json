@@ -10,7 +10,6 @@
   "author": "Jesse Malinosky",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "axios": "^0.18.0",
     "bulma": "^0.7.2",
     "dayjs": "^1.7.8",
     "gsap": "^2.0.2",

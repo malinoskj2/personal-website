@@ -5,7 +5,7 @@ authors = ["User"]
 description = "Rust crate to gen wasm functions for my website"
 edition = "2018"
 license = "BSD-2-Clause"
-repository = "malinoskj2/website-backend"
+repository = "https://github.com/malinoskj2/website-backend"
 
 [lib]
 crate-type = ["cdylib"]
@@ -35,3 +35,7 @@ features = [
 
 [features]
 default = ["console_error_panic_hook"]
+
+[profile.release]
+lto = true
+opt-level = 's'

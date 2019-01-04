@@ -16,25 +16,14 @@ import store from './store';
 Vue.use(VueTyperPlugin);
 Vue.use(SequentialEntrance);
 
-
-const wasmLib = import('./lib/pkg');
-
-wasmLib.then((m) => {
-  const Api = new m.Api(process.env.VUE_APP_API_BASE, true);
-  return Api.get_repos();
-})
-  .then((jsonResult) => {
-    console.log('1: successfully received the json result');
-    console.log(`result: ${jsonResult[0].name}`);
-  });
-
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
   created() {
-    this.$store.dispatch('initProjects');
+    this.$store.dispatch('initApi')
+      .then(() => this.$store.dispatch('initProjects'));
   },
   render: h => h(App),
 }).$mount('#app');
