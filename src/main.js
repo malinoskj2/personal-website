@@ -22,8 +22,7 @@ new Vue({
   router,
   store,
   created() {
-    this.$store.dispatch('initApi')
-      .then(() => this.$store.dispatch('initProjects'));
+    this.$store.dispatch('initApi');
   },
   render: h => h(App),
 }).$mount('#app');

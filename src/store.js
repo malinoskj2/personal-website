@@ -112,7 +112,6 @@ export default new Vuex.Store({
     async initApi({ commit, state }) {
       const wasmLib = await import('./lib/pkg');
       const api = new wasmLib.Api(process.env.VUE_APP_API_BASE, true);
-      console.log(api);
       commit('setApi', { api });
     },
     async initProjects({ commit, state }) {

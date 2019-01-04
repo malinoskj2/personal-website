@@ -31,6 +31,9 @@ export default {
   data() {
     return { dynamicMin: 0 };
   },
+  created() {
+    this.$store.dispatch('initProjects');
+  },
   mounted() {
     this.$nextTick(() => {
       this.dynamicMin = this.$refs.projectList.offsetHeight;
