@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use wasm_bindgen::JsValue;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct MastodonStatus {

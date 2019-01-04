@@ -19,10 +19,12 @@ Vue.use(SequentialEntrance);
 
 const wasmLib = import('./lib/pkg');
 
-wasmLib
-  .then(m => m.run2())
+wasmLib.then((m) => {
+  const Api = new m.Api(process.env.VUE_APP_API_BASE, true);
+  return Api.get_repos();
+})
   .then((jsonResult) => {
-    console.log('successfully received the json result');
+    console.log('1: successfully received the json result');
     console.log(`result: ${jsonResult[0].name}`);
   });
 
