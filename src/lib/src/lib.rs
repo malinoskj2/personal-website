@@ -45,10 +45,10 @@ pub struct Api {
 #[wasm_bindgen]
 impl Api {
     #[wasm_bindgen(constructor)]
-    pub fn new(base_url: &str, isCors: bool) -> Self {
+    pub fn new(base_url: &str, is_cors: bool) -> Self {
         Self {
             base_url: base_url.to_owned(),
-            isCors,
+            is_cors,
         }
     }
 
@@ -94,7 +94,7 @@ impl Api {
                 let resp: Response = resp_value.dyn_into().unwrap();
                 resp.json()
             })
-            .and_then(|json_value| JsFuture::from(json_value))
+            .and_then(JsFuture::from)
             .and_then(|json| {
                 let repos: Vec<MastodonStatus> = json.into_serde().unwrap();
                 future::ok(JsValue::from_serde(&repos).unwrap())
@@ -116,7 +116,7 @@ impl Api {
                 let resp: Response = resp_value.dyn_into().unwrap();
                 resp.json()
             })
-            .and_then(|json_value| JsFuture::from(json_value))
+            .and_then(JsFuture::from)
             .and_then(|json| {
                 let repos: Vec<Repo> = json.into_serde().unwrap();
                 future::ok(JsValue::from_serde(&repos).unwrap())
@@ -138,7 +138,7 @@ impl Api {
                 let resp: Response = resp_value.dyn_into().unwrap();
                 resp.json()
             })
-            .and_then(|json_value| JsFuture::from(json_value))
+            .and_then(JsFuture::from)
             .and_then(|json| {
                 let repos: Vec<Commit> = json.into_serde().unwrap();
                 future::ok(JsValue::from_serde(&repos).unwrap())
