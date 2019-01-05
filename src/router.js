@@ -23,13 +23,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: BaseView,
+      component: NavLess,
       children: [
         {
           path: '',
           name: 'home',
           components: {
-            nav: JNav,
             'content-a': UnderConstruction,
             footer: JFooter,
           },

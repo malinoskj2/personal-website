@@ -2,18 +2,21 @@
 
 
         <div>
-          <span >
-            <router-link class="page-name title"
-                         to="/">jessemalinosky.com</router-link>
-          </span>
+            <div>
+              <vue-typer :text='textA'
+                         initial-action='typing' :repeat="repeat"
+                         :pre-type-delay="300" caret-animation='solid'
+                         class="typer subtitle"
+              ></vue-typer>
+            </div>
 
-          <span class="subtitle">
-            <vue-typer text='🔥'
+
+            <vue-typer v-if="textBVisible"
+                        :text='textB'
                        initial-action='typing' :repeat="repeat"
-                       :pre-type-delay="1200" caret-animation='solid'
-                       class="typer"
+                       :pre-type-delay="0" caret-animation='solid'
+                       class="typer title"
             ></vue-typer>
-          </span>
 
         </div>
 
@@ -25,10 +28,21 @@ export default {
   props: {},
   data() {
     return {
+      textA: 'Hello, I am',
+      textB: 'Jesse Malinosky',
+      textBVisible: false,
+      textBDelay: 1500,
       repeat: 0,
     };
   },
   computed: {
+    combinedText() {
+      return `${this.textA}\n${this.textB}`;
+    },
+  },
+  mounted() {
+    // eslint-disable-next-line
+    setTimeout(() => this.textBVisible = true, this.textBDelay);
   },
   methods: {
   },
@@ -36,17 +50,15 @@ export default {
 </script>
 
 <style scoped>
-  .page-name:hover {
-    cursor: pointer;
+
+  .typer-title {
+  }
+  .title {
+    font-size: 3rem;
   }
 
-  .page-name{
-    margin: auto auto auto 1rem;
+  .vue-typer >>> .custom.char.typed::first-line {
     color: #444054;
-  }
-
-  .vue-typer >>> .custom.char.typed {
-    color: #f46036;
-    font-family: Utopia;
+    font-family: 'Patua One', cursive;
   }
 </style>

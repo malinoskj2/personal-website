@@ -12,9 +12,12 @@
       </div>
 
     <section class="section">
-      <router-view name="content-a"></router-view>
+      <div class="container">
+        <router-view name="content-a"></router-view>
+      </div>
     </section>
 
+    <router-view name="footer"/>
   </div>
 </template>
 
@@ -39,11 +42,6 @@ export default {
 };
 </script>
 <style >
-  .navless {
-    background: #292f36;
-    overflow:hidden;
-  }
-
   .fa-arrow-left {
     color:white;
   }
