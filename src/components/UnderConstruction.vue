@@ -82,12 +82,7 @@ export default {
     },
   },
   created() {
-    if (this.$store.state.api) {
-      this.$store.dispatch('initProjects');
-    } else {
-      this.$store.dispatch('initApi').then(() => this.$store.dispatch('initProjects'));
-    }
-
+    this.$store.dispatch('initProjects');
     this.throttledMouseMove = _.throttle(this.mouseMove, 100);
   },
 };

@@ -114,8 +114,18 @@ export default new Vuex.Store({
       const api = new wasmLib.Api(process.env.VUE_APP_API_BASE, true);
       commit('setApi', { api });
     },
-    async initProjects({ commit, state }) {
-      commit('setProjects', { projects: await state.api.get_repos() });
+    async initProjects({ commit, state, dispatch }) {
+      if (state.api) {
+        commit('setProjects', { projects: await state.api.get_repos() });
+      } else {
+        dispatch('initApi')
+          .catch(() => console.log('failed to init api'))
+          .then(() => state.api.get_repos())
+          .catch(() => console.log('failed to get repos'))
+          .then((repos) => {
+            commit('setProjects', { projects: repos });
+          });
+      }
     },
   },
 });
