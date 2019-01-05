@@ -6,7 +6,7 @@ const BaseView = () => import('@/views/BaseView.vue');
 const NavLess = () => import('@/views/NavLess.vue');
 
 const ProjectsPage = () => import('@/views/ProjectsPage.vue');
-
+const HomePage = () => import('@/views/HomePage.vue');
 // Sub-Views
 const UnderConstruction = () => import('@/components/UnderConstruction.vue');
 const ProjectTiles = () => import('@/components/ProjectTiles.vue');
@@ -23,13 +23,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: NavLess,
+      component: BaseView,
       children: [
         {
           path: '',
           name: 'home',
           components: {
-            'content-a': UnderConstruction,
+            nav: JNav,
+            'content-a': HomePage,
             footer: JFooter,
           },
         },
