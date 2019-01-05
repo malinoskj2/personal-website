@@ -7,14 +7,14 @@
                          initial-action='typing' :repeat="repeat"
                          :pre-type-delay="300" caret-animation='solid'
                          class="typer subtitle"
+                         @completed="showBText"
               ></vue-typer>
             </div>
 
-
-            <vue-typer v-if="textBVisible"
-                        :text='textB'
+            <vue-typer :style="{ opacity: textBVisible ? '1' : '0'}"
+                       :text='textB'
                        initial-action='typing' :repeat="repeat"
-                       :pre-type-delay="0" caret-animation='solid'
+                       :pre-type-delay="textBDelay" caret-animation='solid'
                        class="typer title"
             ></vue-typer>
 
@@ -36,15 +36,11 @@ export default {
     };
   },
   computed: {
-    combinedText() {
-      return `${this.textA}\n${this.textB}`;
-    },
-  },
-  mounted() {
-    // eslint-disable-next-line
-    setTimeout(() => this.textBVisible = true, this.textBDelay);
   },
   methods: {
+    showBText() {
+      this.textBVisible = true;
+    },
   },
 };
 </script>
