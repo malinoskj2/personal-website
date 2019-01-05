@@ -1,24 +1,13 @@
 <template>
-  <section class="section nav-sec">
-    <div class="container">
+  <section class="section">
+    <div class="columns">
 
-      <nav class="level j-header is-hidden-mobile">
+      <div  class="column is-8">
+        <HeroTitle></HeroTitle>
+      </div>
+      <div  class="column is-4">
 
-        <div class="level-left">
-          <div class="level-item">
-            <HeroTitle></HeroTitle>
-          </div>
-        </div>
-
-        <div class="level-right">
-          <div class="level-item">
-            <transition appear name="fade">
-              <NavButtonRow></NavButtonRow>
-            </transition>
-          </div>
-        </div>
-
-      </nav>
+      </div>
 
     </div>
   </section>
@@ -26,14 +15,12 @@
 
 <script>
 import HeroTitle from '@/components/HeroTitle.vue';
-import NavButtonRow from '@/components/NavButtonRow.vue';
 
 export default {
   name: 'JNav',
   props: {},
   components: {
     HeroTitle,
-    NavButtonRow,
   },
   data() {
     return {};
@@ -44,6 +31,9 @@ export default {
 </script>
 
 <style scoped>
-
-
+  @media (min-width:769px) {
+    .section {
+      padding: 0rem 6rem 0rem 6rem;
+    }
+  }
 </style>

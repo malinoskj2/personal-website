@@ -1,7 +1,11 @@
 <template>
   <div class="base-view" >
 
-    <router-view name="nav" class=""></router-view>
+    <section class="section">
+      <div class="container">
+        <router-view name="nav" class=""></router-view>
+      </div>
+    </section>
 
     <section class="section">
       <div class="container">
