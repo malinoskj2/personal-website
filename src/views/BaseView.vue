@@ -17,7 +17,10 @@
               <router-view name="left-content"></router-view>
 
               <div class="column is-4">
-                  <router-view name="right-content"/>
+                  <router-view name="right-content"
+                               :groupTitle="groupTitle"
+                               :tagsWithState="tagsWithState"
+                               @tag-click="updateActiveTags"/>
               </div>
 
             </div>
@@ -32,6 +35,8 @@
 </template>
 
 <script>
+/* eslint-disable no-undef */
+
 // @ is an alias to /src
 
 export default {
@@ -43,18 +48,20 @@ export default {
       shapeKind: 'rectangle',
     };
   },
-  computed: {
-    tagsWithState() {
-      return this.$store.getters.getTagsWithState;
-    },
+  props: {
+    groupTitle: String,
   },
   methods: {
     updateActiveTags(payload) {
       this.$store.commit('updateActiveTags', payload);
     },
   },
+  computed: {
+    tagsWithState() {
+      return this.$store.getters.getTagsWithState;
+    },
+  },
   created() {
-    this.$store.dispatch('initProjects');
   },
   mounted() {
     this.$nextTick(() => {

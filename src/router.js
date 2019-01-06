@@ -1,6 +1,7 @@
 /* eslint-disable object-property-newline */
 import Vue from 'vue';
 import Router from 'vue-router';
+import store from './store';
 
 // Views
 const BaseView = () => import('@/views/BaseView.vue');
@@ -38,6 +39,10 @@ const root = {
 const projects = {
   path: '/projects', component: BaseView,
 
+  props: {
+    groupTitle: 'Languages',
+    tagsWithState: store.getters.getTagsWithState,
+  },
   children: [
     {
       path: '',
