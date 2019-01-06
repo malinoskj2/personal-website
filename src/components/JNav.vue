@@ -1,11 +1,11 @@
 <template>
   <section class="section">
-    <div class="columns">
+    <div class="columns is-centered">
 
-      <div  class="column is-8">
+      <div  class="column is-4-fullhd is-8-desktop">
         <HeroTitle></HeroTitle>
       </div>
-      <div  class="column is-4">
+      <div  class="column is-4 is-hidden-mobile">
 
       </div>
 

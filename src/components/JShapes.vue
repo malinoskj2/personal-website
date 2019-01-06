@@ -36,8 +36,14 @@ export default {
     };
   },
   props: {
-    reactive: Boolean,
-    shapeKind: String,
+    reactive: {
+      type: Boolean,
+      default: true,
+    },
+    shapeKind: {
+      type: String,
+      default: 'rectangle'
+    },
   },
   created() {
     this.throttledMouseMove = throttle(this.mouseMove, 100);
@@ -85,7 +91,8 @@ export default {
   .shapes {
     width:50%;
     height:50%;
-
+    left: 60%;
+    top: 30%;
     padding-left: 0rem !important;
     position:  absolute;
   }
@@ -122,7 +129,7 @@ export default {
     height: 50%;
 
     x:-30%;
-    y:-40%;
+    y:-30%;
     stroke: #f46036 !important;
   }
 
@@ -131,7 +138,7 @@ export default {
     height: 30%;
 
     x:0%;
-    y:10%;
+    y:0%;
 
     stroke: #2455c3 !important;
   }
@@ -141,7 +148,7 @@ export default {
     height: 15%;
 
     x:0%;
-    y:-10%;
+    y:-20%;
 
     stroke: #d6f8d6 !important;
   }

@@ -1,7 +1,7 @@
 <template>
 <div ref="homePageRoot" class="home-page">
-  <div class="section">
-    <div  class="columns"
+  <div  id="page-content" class="section">
+    <div  class="columns is-centered"
           :style="{'min-height': dynamicMin +'px'}"
           ref="projectList">
     <ProjectTiles/>
@@ -53,8 +53,14 @@ export default {
 
 <style scoped>
   @media (min-width:769px) {
-    .section {
-      padding: 0rem 6rem 0rem 6rem;
+    #page-content {
+      padding: 0rem 5.5rem 0rem 5.5rem;
     }
+  }
+  .home-page {
+    min-height: 720px;
+  }
+  #page-content {
+    margin-top: -4rem;
   }
 </style>

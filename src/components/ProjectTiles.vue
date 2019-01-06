@@ -1,5 +1,5 @@
 <template>
-              <div  class="column is-8">
+              <div  class="column is-4-fullhd is-8-desktop">
                 <sequential-entrance animation="fadeInUp" delay="200">
                 <div class="j-project"
                      v-for="(project) in projectsFiltered"
@@ -67,5 +67,4 @@ export default {
     -webkit-animation: fadeInUp .2s cubic-bezier(0.455, 0.030, 0.515, 0.955);
     animation: fadeInUp .2s cubic-bezier(0.455, 0.030, 0.515, 0.955);
   }
-
 </style>

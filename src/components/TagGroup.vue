@@ -19,8 +19,14 @@
 export default {
   name: 'TagGroup',
   props: {
-    tagsWithState: Array,
-    groupTitle: String,
+    tagsWithState: {
+      type: Array,
+      default: () => [{ name: 'noName', isActive: false }],
+    },
+    groupTitle: {
+      type: String,
+      default: 'unableToGetTags',
+    },
   },
   data() {
     return {
