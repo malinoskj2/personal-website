@@ -1,7 +1,7 @@
 /* eslint-disable import/no-named-as-default-member,no-unused-vars,no-use-before-define,max-len,arrow-body-style */
 import Vue from 'vue';
 import Vuex from 'vuex';
-
+import initApi from '@/client/client';
 import _ from 'lodash';
 
 Vue.use(Vuex);
@@ -110,12 +110,7 @@ export default new Vuex.Store({
   },
   actions: {
     async initApi({ commit, state }) {
-      const wasmLib = await import('./lib/pkg');
-      const api = new wasmLib.Api(process.env.VUE_APP_API_BASE, true);
-
-      api.add_request('repos', '/repos', 'GET');
-      api.add_request('commits', '/commits', 'GET');
-      api.add_request('statuses', '/statuses', 'GET');
+      const api = await initApi();
 
       commit('setApi', { api });
     },
