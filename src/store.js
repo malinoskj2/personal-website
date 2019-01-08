@@ -6,32 +6,6 @@ import _ from 'lodash';
 
 Vue.use(Vuex);
 
-function getEnvLinks() {
-  return [{
-    website: process.env.VUE_APP_WEBSITE_A,
-    url: process.env.VUE_APP_LINK_A,
-  },
-  {
-    website: process.env.VUE_APP_WEBSITE_B,
-    url: process.env.VUE_APP_LINK_B,
-  },
-  {
-    website: process.env.VUE_APP_WEBSITE_C,
-    url: process.env.VUE_APP_LINK_C,
-  },
-  {
-    website: process.env.VUE_APP_WEBSITE_D,
-    url: process.env.VUE_APP_LINK_D,
-  },
-  {
-    website: process.env.VUE_APP_WEBSITE_E,
-    url: process.env.VUE_APP_LINK_E,
-  },
-  {
-    website: process.env.VUE_APP_WEBSITE_F,
-    url: process.env.VUE_APP_LINK_F,
-  }];
-}
 
 export default new Vuex.Store({
   state: {
@@ -39,7 +13,11 @@ export default new Vuex.Store({
     events: [],
     eventsBundled: [],
     projects: [],
-    links: getEnvLinks(),
+    links: _.zip(
+      process.env.VUE_APP_NAV_WEBSITES.split(','),
+      process.env.VUE_APP_NAV_LINKS.split(','),
+    )
+      .map((siteName, siteUrl) => ({ website: siteName, url: siteUrl })),
     activeTags: [],
   },
   mutations: {
