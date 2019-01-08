@@ -34,7 +34,7 @@ cfg_if! {
 #[wasm_bindgen]
 pub struct Api {
     window: web_sys::Window,
-    base_url: String,
+    host: String,
     is_cors: bool,
     requests: HashMap<String, Request>,
 }
@@ -42,10 +42,10 @@ pub struct Api {
 #[wasm_bindgen]
 impl Api {
     #[wasm_bindgen(constructor)]
-    pub fn new(base_url: &str, is_cors: bool) -> Self {
+    pub fn new(host: &str, is_cors: bool) -> Self {
         Self {
             window: web_sys::window().expect("failed to get window obj"),
-            base_url: base_url.to_owned(),
+            host: host.to_owned(),
             is_cors,
             requests: HashMap::with_capacity(10),
         }
@@ -53,7 +53,7 @@ impl Api {
 
     pub fn add_request(&mut self, name: &str, endpoint: &str, method: &str) {
         Request::new_with_str_and_init(
-            &format!("{}{}", &self.base_url, endpoint),
+            &format!("{}{}", &self.host, endpoint),
             &self.get_opts(method),
         )
         .and_then(|req| {
