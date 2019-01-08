@@ -3,23 +3,24 @@
   <section ref="shapeContainer"
             class="section shapes perf-hack">
 
+
     <svg xmlns="http://www.w3.org/2000/svg"
          ref="shapeC"
          class="shape shape-c"
          width="100%" height="100%">
-      <path :class="shapeKind" />
+      <path :d="shapePath"/>
     </svg>
 
     <svg xmlns="http://www.w3.org/2000/svg"
          ref="shapeB"
          class="shape shape-b">
-      <path :class="shapeKind" />
+      <path :d="shapePath" />
     </svg>
 
     <svg xmlns="http://www.w3.org/2000/svg"
          ref="shapeA"
          class="shape shape-a">
-      <path :class="shapeKind" />
+      <path :d="shapePath" />
     </svg>
 
   </section>
@@ -29,10 +30,19 @@
 import throttle from 'lodash/throttle';
 import { TweenLite } from 'gsap';
 
+const initShapePaths = () => {
+  const paths = new Map();
+  paths.set('circle', 'M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0');
+  paths.set('rectangle', 'M0,0 100,0 100,100 0,100 Z');
+  paths.set('triangle', 'M 5,50 97.5,5 97.5,95 Z');
+  return paths;
+};
+
 export default {
   name: 'JShapes',
   data() {
     return {
+      shapePaths: initShapePaths(),
     };
   },
   props: {
@@ -55,6 +65,9 @@ export default {
     }
   },
   computed: {
+    shapePath() {
+      return this.shapePaths.get(this.shapeKind);
+    },
   },
   methods: {
     mouseMove(event) {
@@ -107,18 +120,6 @@ export default {
   .shape{
     fill: transparent;
     stroke-width: 2;
-  }
-
-  .circle {
-    d: path("M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0");
-  }
-
-  .rectangle {
-    d: path("M0,0 100,0 100,100 0,100 Z");
-  }
-
-  .triangle {
-    d: path("M 5,50 97.5,5 97.5,95 Z")
   }
 
   .shape-a {
