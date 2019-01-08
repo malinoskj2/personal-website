@@ -16,7 +16,7 @@
                   ref="projectList">
               <router-view name="left-content"></router-view>
 
-              <div class="column is-4">
+              <div class="column is-3 is-offset-1">
                   <router-view name="right-content"
                                :groupTitle="groupTitle"
                                :tagsWithState="tagsWithState"

@@ -39,7 +39,7 @@ export default {
 
   #about-button {
     font-family: Karla;
-    margin: 2rem 5.5rem 0rem 5.5rem;
+    margin: 2rem 2.25rem 0rem 3rem;
     transform: translateY(5%);
   }
 
