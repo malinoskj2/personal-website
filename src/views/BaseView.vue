@@ -28,10 +28,6 @@
             </div>
           </div>
 
-          <div id="under-color-a">
-
-          </div>
-
         </div>
       </div>
 

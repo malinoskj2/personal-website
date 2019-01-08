@@ -46,8 +46,8 @@ export default {
   }
 
   .title-section {
-    positon:relative
   }
+
 
   #emoji-symbol {
     position: absolute;
@@ -55,6 +55,9 @@ export default {
     transform: translate(-230%, -32%) scale(2.75);
 
     animation: 20s 2s emoji-move-frames cubic-bezier(0.075, 0.82, 0.165, 1) both infinite;
+
+
+    color: #292f36;
   }
 
   @keyframes emoji-move-frames {
