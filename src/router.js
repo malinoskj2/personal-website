@@ -17,17 +17,21 @@ const InteractiveHeader = () => import('@/components/InteractiveHeader.vue');
 const JFooter = () => import('@/components/JFooter.vue');
 const JShapes = () => import('@/components/JShapes.vue');
 const TagGroup = () => import('@/components/TagGroup.vue');
+const IntroText = () => import('@/components/IntroText.vue');
 
 Vue.use(Router);
 
 const root = {
   path: '/', component: BaseView,
-
+  props: {
+    introTextContent: process.env.VUE_APP_INTRO_TEXT,
+  },
   children: [
     {
       path: '', name: 'home',
       components: {
         nav: JNav,
+        'pre-content': IntroText,
         'left-content': ProjectTiles,
         'right-content': JShapes,
         footer: JFooter,
@@ -41,7 +45,6 @@ const projects = {
 
   props: {
     groupTitle: 'Languages',
-    tagsWithState: store.getters.getTagsWithState,
   },
   children: [
     {

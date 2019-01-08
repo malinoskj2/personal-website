@@ -85,6 +85,7 @@ export default {
 
     transform-origin: left;
     width: 30rem;
+    transform: scaleX(0) scaleY(2);
     animation: 300ms 50ms draw-border-anim forwards;
   }
 

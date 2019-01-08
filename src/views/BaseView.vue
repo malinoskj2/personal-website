@@ -7,15 +7,38 @@
       </div>
     </section>
 
+
+      <div class="container">
+        <div ref="homePageRoot">
+
+          <div class="page-content section">
+            <div  class="columns is-centered"
+                  ref="projectList">
+
+              <div  class="column is-4-fullhd is-8-desktop">
+                <router-view name="pre-content"
+                :introTextContent="introTextContent"/>
+              </div>
+
+              <div class="column is-3 is-offset-1 is-hidden-mobile">
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
     <section class="section">
       <div class="container">
         <div ref="homePageRoot" class="home-page">
 
-
-          <div  id="page-content" class="section">
+          <div class="page-content section">
             <div  class="columns is-centered"
                   :style="{'min-height': dynamicMin +'px'}"
                   ref="projectList">
+
               <router-view name="left-content"
                           :projectList="projectsFiltered"></router-view>
 
@@ -57,6 +80,7 @@ export default {
   },
   props: {
     groupTitle: String,
+    introTextContent: String,
   },
   methods: {
     updateActiveTags(payload) {
@@ -82,7 +106,7 @@ export default {
 </script>
 <style scoped>
   @media (min-width:769px) {
-    #page-content {
+    .page-content {
       padding: 0rem 5.5rem 0rem 5.5rem;
     }
   }
@@ -100,5 +124,13 @@ export default {
     background-color: #2455c3;
     position: relative;
     transform: translateY(-50%);
+  }
+
+  .intro-content {
+    margin: -4rem 0rem 4rem 0rem;
+  }
+
+  .intro-col {
+    margin-left: 10rem;
   }
 </style>

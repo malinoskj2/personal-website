@@ -24,7 +24,7 @@ export default {
   props: {},
   data() {
     return {
-      textA: "Hello I'm",
+      textA: "Hello¸ I'm",
       textB: 'Jesse Malinosky',
       textBVisible: true,
       textBDelay: 1500,
@@ -57,6 +57,7 @@ export default {
   .j-subtitle {
     color: #444054;
     font-family: 'Lato', cursive;
+    filter: opacity(.4);
   }
 
   .vue-typer >>> .custom.char.typed::first-line {
