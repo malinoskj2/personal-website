@@ -1,21 +1,17 @@
 <template>
 
 
-        <div>
+        <div class="title-container">
+
             <div>
-              <vue-typer :text='textA'
-                         initial-action='typing' :repeat="repeat"
-                         :pre-type-delay="300" caret-animation='solid'
-                         class="typer subtitle"
-                         @completed="showBText"
-              ></vue-typer>
+              <h2 class="typer subtitle j-subtitle">{{textA}}</h2>
             </div>
 
             <vue-typer :style="{ opacity: textBVisible ? '1' : '0'}"
                        :text='textB'
                        initial-action='typing' :repeat="repeat"
                        :pre-type-delay="textBDelay" caret-animation='solid'
-                       class="typer title"
+                       class="typer title main-text"
             ></vue-typer>
 
         </div>
@@ -30,7 +26,7 @@ export default {
     return {
       textA: 'Hello, I am',
       textB: 'Jesse Malinosky',
-      textBVisible: false,
+      textBVisible: true,
       textBDelay: 1500,
       repeat: 0,
     };
@@ -47,10 +43,21 @@ export default {
 
 <style scoped>
 
-  .typer-title {
-  }
   .title {
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .title-container {
+    margin-bottom: 20px;
+  }
+
+  .main-text {
+    position:absolute;
+  }
+
+  .j-subtitle {
+    color: #444054;
+    font-family: 'Patua One', cursive;
   }
 
   .vue-typer >>> .custom.char.typed::first-line {
