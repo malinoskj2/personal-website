@@ -17,7 +17,8 @@
 
               <div  class="column is-4-fullhd is-8-desktop">
                 <router-view name="pre-content"
-                :introTextContent="introTextContent"/>
+                :introTextContent="introTextContent"
+                :introTextLinks="introTextLinks"/>
               </div>
 
               <div class="column is-3 is-offset-1 is-hidden-mobile">
@@ -76,11 +77,14 @@ export default {
       dynamicMin: 0,
       reactiveShapes: true,
       shapeKind: 'rectangle',
+      introTextLinks: [
+        { website: 'Mastodon', url: 'https://fosstodon.org/@malinoskj2', color: '#f46036' },
+        { website: 'Github', url: 'https://github.com/malinoskj2', color: '#f46036' },
+      ],
     };
   },
   props: {
     groupTitle: String,
-    introTextContent: String,
   },
   methods: {
     updateActiveTags(payload) {
@@ -93,6 +97,9 @@ export default {
     },
     projectsFiltered() {
       return this.$store.getters.getProjectsFiltered;
+    },
+    introTextContent() {
+      return this.$store.getters.getIntroTextContent;
     },
   },
   created() {

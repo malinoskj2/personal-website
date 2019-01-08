@@ -6,6 +6,13 @@ import _ from 'lodash';
 
 Vue.use(Vuex);
 
+function initLinks(siteNameList, siteUrlList, delimiter = ',') {
+  console.log(`siteNameList: ${siteNameList}`);
+  console.log(`siteUrlList: ${siteUrlList}`);
+
+  return _.zip(siteNameList.split(delimiter), siteUrlList.split(delimiter))
+    .map((siteName, siteUrl) => ({ website: siteName, url: siteUrl }));
+}
 
 export default new Vuex.Store({
   state: {
@@ -13,12 +20,12 @@ export default new Vuex.Store({
     events: [],
     eventsBundled: [],
     projects: [],
-    links: _.zip(
-      process.env.VUE_APP_NAV_WEBSITES.split(','),
-      process.env.VUE_APP_NAV_LINKS.split(','),
-    )
-      .map((siteName, siteUrl) => ({ website: siteName, url: siteUrl })),
+    links: initLinks(
+      process.env.VUE_APP_NAV_WEBSITES,
+      process.env.VUE_APP_NAV_LINKS,
+    ),
     activeTags: [],
+    introTextContent: process.env.VUE_APP_INTRO_TEXT,
   },
   mutations: {
     // link contains the website name + url
@@ -84,6 +91,13 @@ export default new Vuex.Store({
           isActive,
         };
       });
+    },
+    getIntroTextContent(state) {
+      return state.introTextContent;
+    },
+    getIntroTextLinks(state) {
+      console.log('running getIntroTextLinks()');
+      return state.introTextLinks;
     },
   },
   actions: {

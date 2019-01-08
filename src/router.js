@@ -23,9 +23,6 @@ Vue.use(Router);
 
 const root = {
   path: '/', component: BaseView,
-  props: {
-    introTextContent: process.env.VUE_APP_INTRO_TEXT,
-  },
   children: [
     {
       path: '', name: 'home',
