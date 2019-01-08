@@ -6,7 +6,7 @@
         <HeroTitle></HeroTitle>
       </div>
       <div  class="column is-4 is-hidden-mobile">
-
+        <a id="about-button" class="button is-outlined is-pulled-right">About</a>
       </div>
 
     </div>
@@ -36,4 +36,12 @@ export default {
       padding: 0rem 6rem 0rem 6rem;
     }
   }
+
+  #about-button {
+    font-family: Karla;
+    margin: 2rem 5.5rem 0rem 5.5rem;
+    transform: translateY(5%);
+  }
+
+
 </style>
