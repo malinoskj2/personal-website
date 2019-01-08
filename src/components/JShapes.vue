@@ -42,7 +42,7 @@ export default {
     },
     shapeKind: {
       type: String,
-      default: 'rectangle'
+      default: 'rectangle',
     },
   },
   created() {
@@ -50,14 +50,11 @@ export default {
   },
   mounted() {
     if (this.$props.reactive) {
-         this.$refs.shapeContainer
-         .addEventListener('mousemove', this.throttledMouseMove, { passive: true });
+      this.$refs.shapeContainer
+        .addEventListener('mousemove', this.throttledMouseMove, { passive: true });
     }
   },
   computed: {
-    shapeSource() {
-      return `../resources/${this.shapeKind}.svg`;
-    },
   },
   methods: {
     mouseMove(event) {
