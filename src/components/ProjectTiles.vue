@@ -11,7 +11,7 @@
 
                 <sequential-entrance animation="fadeInUp" delay="200">
                 <div class="j-project"
-                     v-for="(project) in projectsFiltered"
+                     v-for="(project) in projectList"
                      :key="project.name" >
 
                 <div class="columns">
@@ -36,7 +36,9 @@ export default {
   components: {
     ProjectDescripBox,
   },
-  props: {},
+  props: {
+    projectList: Array,
+  },
   data() {
     return {
     };
@@ -45,10 +47,6 @@ export default {
     getProjects() {
       const projects = this.$store.getters.getProjects;
       return projects;
-    },
-    // If a project does not contain all active tags it is not included
-    projectsFiltered() {
-      return this.$store.getters.getProjectsFiltered;
     },
   },
   methods: {

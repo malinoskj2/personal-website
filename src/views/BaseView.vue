@@ -16,7 +16,8 @@
             <div  class="columns is-centered"
                   :style="{'min-height': dynamicMin +'px'}"
                   ref="projectList">
-              <router-view name="left-content"></router-view>
+              <router-view name="left-content"
+                          :projectList="projectsFiltered"></router-view>
 
               <div class="column is-3 is-offset-1">
                   <router-view name="right-content"
@@ -65,6 +66,9 @@ export default {
   computed: {
     tagsWithState() {
       return this.$store.getters.getTagsWithState;
+    },
+    projectsFiltered() {
+      return this.$store.getters.getProjectsFiltered;
     },
   },
   created() {
