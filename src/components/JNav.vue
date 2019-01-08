@@ -2,8 +2,10 @@
   <section class="section">
     <div class="columns is-centered">
 
-      <div  class="column is-4-fullhd is-8-desktop">
-        <HeroTitle></HeroTitle>
+      <div class="column is-4-fullhd is-8-desktop title-section">
+
+        <HeroTitle class="title-text"></HeroTitle>
+        <span id="emoji-symbol">⭢</span>
       </div>
       <div  class="column is-4 is-hidden-mobile">
         <a id="about-button" class="button is-outlined is-pulled-right">About</a>
@@ -43,5 +45,30 @@ export default {
     transform: translateY(5%);
   }
 
+  .title-section {
+    positon:relative
+  }
 
+  #emoji-symbol {
+    position: absolute;
+    z-index: -200;
+    transform: translate(-230%, -32%) scale(2.75);
+
+    animation: 20s 2s emoji-move-frames cubic-bezier(0.075, 0.82, 0.165, 1) both infinite;
+  }
+
+  @keyframes emoji-move-frames {
+      0% {
+        transform: translate(-230%, -32%) scale(2.75)
+      }
+      4% {
+        transform: translate(-290%, -32%) scale(2.75)
+      }
+      8% {
+        transform: translate(-230%, -32%) scale(2.75)
+      }
+      100% {
+        transform: translate(-230%, -32%) scale(2.75)
+      }
+  }
 </style>

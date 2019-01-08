@@ -10,6 +10,8 @@
     <section class="section">
       <div class="container">
         <div ref="homePageRoot" class="home-page">
+
+
           <div  id="page-content" class="section">
             <div  class="columns is-centered"
                   :style="{'min-height': dynamicMin +'px'}"
@@ -25,9 +27,17 @@
 
             </div>
           </div>
+
+          <div id="under-color-a">
+
+          </div>
+
         </div>
       </div>
+
+
     </section>
+
 
     <router-view name="footer"/>
 
@@ -81,5 +91,14 @@ export default {
   }
   #page-content {
     margin-top: -4rem;
+  }
+
+  #under-color-a {
+    min-height: 300px;;
+    margin-left: -20%;
+    width: 120vw;
+    background-color: #2455c3;
+    position: relative;
+    transform: translateY(-50%);
   }
 </style>
