@@ -25,7 +25,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 
 export default {
-  name: 'ProjectDescripBox',
+  name: 'ProjectListItem',
   props: {
     projectInfo: Object,
   },

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import ProjectDescripBox from '@/components/ProjectDescripBox.vue';
+import ProjectDescripBox from '@/components/ProjectListItem.vue';
 
 
 export default {
