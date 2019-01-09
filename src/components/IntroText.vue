@@ -59,7 +59,7 @@
   .intro-text-container >>> .j-link:hover, .j-link:focus {
     outline: 0;
     transform: scale(1.05) translateY(-2%);
-    filter: drop-shadow(0px 3px 1px rgba(41, 47, 54, 0.15));
+    filter: drop-shadow(0px -1px 1px rgba(41, 47, 54, 0.12));
   }
 
 

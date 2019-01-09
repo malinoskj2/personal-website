@@ -18,6 +18,7 @@ const JFooter = () => import('@/components/JFooter.vue');
 const JShapes = () => import('@/components/JShapes.vue');
 const TagGroup = () => import('@/components/TagGroup.vue');
 const IntroText = () => import('@/components/IntroText.vue');
+const HighlightBox = () => import('@/components/HighlightBox.vue');
 
 Vue.use(Router);
 
@@ -28,9 +29,10 @@ const root = {
       path: '', name: 'home',
       components: {
         nav: JNav,
+        'highlight-box': HighlightBox,
         'pre-content': IntroText,
         'left-content': ProjectTiles,
-        'right-content': JShapes,
+        'right-content': ProjectTiles,
         footer: JFooter,
       },
     },

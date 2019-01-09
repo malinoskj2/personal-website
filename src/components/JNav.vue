@@ -8,7 +8,6 @@
         <span id="emoji-symbol">⭢</span>
       </div>
       <div  class="column is-4 is-hidden-mobile">
-        <a id="about-button" class="button is-outlined is-pulled-right">About</a>
       </div>
 
     </div>

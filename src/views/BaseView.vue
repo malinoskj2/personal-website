@@ -1,14 +1,15 @@
+/* eslint-disable*/
 <template>
   <div class="base-view" >
 
-    <section class="section">
+    <section class="section nav-section">
       <div class="container">
         <router-view name="nav" class=""></router-view>
       </div>
     </section>
 
 
-      <div class="container">
+      <div class="container intro-text">
         <div ref="homePageRoot">
 
           <div class="page-content section">
@@ -31,9 +32,10 @@
       </div>
 
 
-    <section class="section">
+    <section class="section project-list">
       <div class="container">
         <div ref="homePageRoot" class="home-page">
+
 
           <div class="page-content section">
             <div  class="columns is-centered"
@@ -53,10 +55,9 @@
             </div>
           </div>
 
+
         </div>
       </div>
-
-
     </section>
 
 
@@ -120,17 +121,25 @@ export default {
   .home-page {
     min-height: 720px;
   }
-  #page-content {
-    margin-top: -4rem;
-  }
 
-  #under-color-a {
-    min-height: 300px;;
-    margin-left: -20%;
-    width: 120vw;
-    background-color: #2455c3;
-    position: relative;
-    transform: translateY(-50%);
+  .project-list {
+    filter: opacity(0);
+    animation: list-in-ani 1600ms 2s forwards;
+   }
+
+  @keyframes list-in-ani {
+    0% {
+      filter: opacity(0);
+
+    }
+    60%{
+      filter: opacity(.8);
+
+    }
+    100% {
+      filter: opacity(1);
+
+    }
   }
 
   .intro-content {
@@ -139,5 +148,22 @@ export default {
 
   .intro-col {
     margin-left: 10rem;
+  }
+
+  .intro-text {
+    position: relative;
+    z-index: 3;
+    margin-bottom: 8rem;
+  }
+
+  .nav-section {
+    margin-top: 30vh;
+  }
+
+  .highlight-boxes {
+    padding: .25rem;
+    margin-top: 8rem;
+    z-index: -10;
+    background-color: #f5f5f5;
   }
 </style>

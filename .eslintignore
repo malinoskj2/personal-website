@@ -1,2 +1,3 @@
 src/lib/*
 src/components/JShapes.vue
+src/views/BaseView.vue

@@ -3,7 +3,7 @@
 
               <div  class="column is-4-fullhd is-8-desktop">
                 <div id="list-title">
-                  <h1><em><strong>repos</strong></em>
+                  <h1><strong>Everything</strong>
                   </h1>
                   <div class="border-dummy"></div>
                 </div>
@@ -78,10 +78,10 @@ export default {
   #list-title {
     font-title: Karla;
     margin-bottom: 1rem;
+    letter-spacing: .1rem;
   }
 
   .border-dummy {
-    border-bottom: 1px solid #292f36;
 
     transform-origin: left;
     width: 30rem;

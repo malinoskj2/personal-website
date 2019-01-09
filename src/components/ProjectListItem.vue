@@ -77,9 +77,14 @@ export default {
   }
 
   .j-card {
-    background: transparent;
-    border-radius: 2px;
     padding-bottom: 2rem;
+  }
+
+  .j-card:hover {
+    background: linear-gradient( to right, #f5f5f5, #ffffff);
+
+    border-radius: 2px;
+    cursor: pointer;
   }
 
   .title-line:hover {
