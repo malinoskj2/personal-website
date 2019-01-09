@@ -2,18 +2,15 @@
   <div class="tile is-child j-card">
 
     <div class="title-line">
-      <span class="title">{{projectInfo.name}} </span>
+      <span class="title">
+        <a :href="projectInfo.html_url">{{projectInfo.name}}</a>
+      </span>
 
       <span id="time-update"
             class="is-unselectable">
-        ~ updated {{lastPushed}}
+        updated {{lastPushed}}
       </span>
 
-      <span class="icon is-small gh-icon">
-               <a :href="projectInfo.html_url">
-                 <i class="fab fa-github low-opac-till-hover"></i>
-               </a>
-      </span>
     </div>
 
     <p class="description">{{projectInfo.description}}</p>
@@ -96,7 +93,7 @@ export default {
   #time-update {
     margin-left: .25rem;
     font-size: .8rem;
-    filter: opacity(.8);
+    filter: opacity(.65);
   }
 
   #time-update:hover {
