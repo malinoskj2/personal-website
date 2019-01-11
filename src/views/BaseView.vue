@@ -24,7 +24,7 @@
 
               <div class="column is-3 is-offset-1 is-hidden-mobile">
                 <div class="right-side-box box-pos-a"
-                      @click="toggleBoxPos">text</div>
+                      @click="toggleBoxPos"></div>
               </div>
 
             </div>
@@ -150,10 +150,9 @@ export default {
 
   .right-side-box {
     background-color: #f46036;
-    min-height: 100vh;
-    min-width: 100vw;
-    position: absolute;
-
+    min-height: 40vh;
+    min-width: 50vw;
+    position: fixed;
     will-change: transform;
     backface-visibility: hidden;
   }
@@ -163,7 +162,7 @@ export default {
   }
 
   .base-view {
-    transition: 550ms ease-in-out transform;
+    transition: 350ms ease-in-out transform;
   }
 
   .view-a {
@@ -171,11 +170,11 @@ export default {
   }
 
   .view-b {
-    transform: translate(-30%,30%);
+    transform: translate(0%,20vh);
   }
 
   .box-pos-a {
-    transform: translate(0%,-97.5%);
+    top: -64vh;
   }
 
   .intro-content {
