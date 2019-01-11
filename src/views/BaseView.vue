@@ -153,6 +153,9 @@ export default {
     min-height: 100vh;
     min-width: 100vw;
     position: absolute;
+
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .right-side-box:hover {
@@ -160,11 +163,10 @@ export default {
   }
 
   .base-view {
-    transition: 400ms all;
+    transition: 550ms ease-in-out transform;
   }
 
   .view-a {
-
     transform: translate(0%,0%);
   }
 

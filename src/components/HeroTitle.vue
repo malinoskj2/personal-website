@@ -63,9 +63,6 @@ export default {
   .vue-typer >>> .custom.char.typed::first-line {
     font-family: 'Karla', cursive;
 
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-
-    background-color: #292f36;
+    color: #292f36;
   }
 </style>
