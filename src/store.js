@@ -7,9 +7,6 @@ import _ from 'lodash';
 Vue.use(Vuex);
 
 function initLinks(siteNameList, siteUrlList, delimiter = ',') {
-  console.log(`siteNameList: ${siteNameList}`);
-  console.log(`siteUrlList: ${siteUrlList}`);
-
   return _.zip(siteNameList.split(delimiter), siteUrlList.split(delimiter))
     .map((siteName, siteUrl) => ({ website: siteName, url: siteUrl }));
 }

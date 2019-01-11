@@ -1,10 +1,10 @@
 /* eslint-disable*/
 <template>
-  <div class="base-view" >
+  <div class="base-view" :class="{ 'view-a': boxPosA, 'view-b': !boxPosA }" >
 
     <section class="section nav-section">
       <div class="container">
-        <router-view name="nav" class=""></router-view>
+        <router-view name="nav" class="" ></router-view>
       </div>
     </section>
 
@@ -23,6 +23,8 @@
               </div>
 
               <div class="column is-3 is-offset-1 is-hidden-mobile">
+                <div class="right-side-box box-pos-a"
+                      @click="toggleBoxPos">text</div>
               </div>
 
             </div>
@@ -82,6 +84,7 @@ export default {
         { website: 'Mastodon', url: 'https://fosstodon.org/@malinoskj2', color: '#f46036' },
         { website: 'Github', url: 'https://github.com/malinoskj2', color: '#f46036' },
       ],
+      boxPosA: true,
     };
   },
   props: {
@@ -90,6 +93,9 @@ export default {
   methods: {
     updateActiveTags(payload) {
       this.$store.commit('updateActiveTags', payload);
+    },
+    toggleBoxPos(payload) {
+      this.boxPosA = !this.boxPosA;
     },
   },
   computed: {
@@ -140,6 +146,34 @@ export default {
       filter: opacity(1);
 
     }
+  }
+
+  .right-side-box {
+    background-color: #f46036;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+  }
+
+  .right-side-box:hover {
+    cursor: pointer;
+  }
+
+  .base-view {
+    transition: 400ms all;
+  }
+
+  .view-a {
+
+    transform: translate(0%,0%);
+  }
+
+  .view-b {
+    transform: translate(-30%,30%);
+  }
+
+  .box-pos-a {
+    transform: translate(0%,-97.5%);
   }
 
   .intro-content {
