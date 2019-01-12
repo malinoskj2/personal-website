@@ -1,15 +1,15 @@
 /* eslint-disable*/
 <template>
-  <div class="base-view" :class="{ 'view-a': boxPosA, 'view-b': !boxPosA }" >
+  <div class="base-view"
+       :class="{ 'view-a': boxPosA, 'view-b': !boxPosA }" >
 
-    <section class="section nav-section">
+    <section class="section nav-section nav-section-mob">
       <div class="container">
         <router-view name="nav" class="" ></router-view>
       </div>
     </section>
 
-
-      <div class="container intro-text">
+      <div class="container intro-text is-hidden-mobile">
         <div ref="homePageRoot">
 
           <div class="page-content section">
@@ -44,11 +44,12 @@
                   ref="projectList">
 
               <router-view name="left-content"
+                           class="left-content-mob"
                           :projectList="projectsHighlights"
                            projectListTitle="Projects"
                           ></router-view>
 
-              <div class="column is-6">
+              <div class="is-6">
                   <router-view name="right-content"
                                :groupTitle="groupTitle"
                                :projectList="projectsFiltered"
@@ -157,7 +158,7 @@ export default {
   .right-side-box {
     background-color: #f46036;
     min-height: 40vh;
-    min-width: 50vw;
+    min-width: 54vw;
     position: fixed;
     will-change: transform;
     backface-visibility: hidden;
@@ -181,7 +182,7 @@ export default {
 
   .box-pos-a {
     top: -64vh;
-    transform: translateX(12%);
+    transform: translateX(6%);
   }
 
   .intro-content {
@@ -208,4 +209,19 @@ export default {
     z-index: -10;
     background-color: #f5f5f5;
   }
+
+  @media (max-width:768px) {
+    .nav-section-mob {
+      margin: -4rem 0rem 0rem 0rem;
+      padding-bottom: 0rem;
+    }
+  }
+
+  @media only screen
+  and (min-width: 769px) and (max-width: 1024px)  {
+    .left-content-mob{
+      transform: translateX(20%);
+    }
+  }
+
 </style>
