@@ -1,7 +1,6 @@
 <template>
 
-
-              <div  class="column is-4-fullhd is-8-desktop">
+              <div  class="column">
                 <div id="list-title">
                   <h1><strong>{{projectListTitle}}</strong>
                   </h1>
@@ -14,14 +13,10 @@
                      v-for="(project) in projectList"
                      :key="project.name" >
 
-                <div class="columns">
-                  <div class="column is-12">
 
                       <ProjectDescripBox
                         :projectInfo="project"/>
 
-                  </div>
-                </div>
               </div>
               </sequential-entrance>
               </div>

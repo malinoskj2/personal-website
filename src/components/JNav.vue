@@ -2,12 +2,12 @@
   <section class="section">
     <div class="columns is-centered">
 
-      <div class="column is-4-fullhd is-8-desktop title-section">
+      <div class="column is-6-fullhd is-6-desktop title-section">
 
         <HeroTitle class="title-text"></HeroTitle>
         <span id="emoji-symbol">⭢</span>
       </div>
-      <div  class="column is-4 is-hidden-mobile">
+      <div  class="column is-6 is-hidden-mobile">
       </div>
 
     </div>

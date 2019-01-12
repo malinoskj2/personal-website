@@ -13,7 +13,7 @@
         <div ref="homePageRoot">
 
           <div class="page-content section">
-            <div  class="columns is-centered"
+            <div  class="columns"
                   ref="projectList">
 
               <div  class="column is-4-fullhd is-8-desktop">
@@ -39,7 +39,7 @@
         <div ref="homePageRoot" class="home-page">
 
           <div class="page-content section">
-            <div  class="columns is-centered"
+              <div  class="columns is-centered"
                   :style="{'min-height': dynamicMin +'px'}"
                   ref="projectList">
 
@@ -48,7 +48,7 @@
                            projectListTitle="Projects"
                           ></router-view>
 
-              <div class="column is-3 is-offset-1">
+              <div class="column is-6">
                   <router-view name="right-content"
                                :groupTitle="groupTitle"
                                :projectList="projectsFiltered"
@@ -181,6 +181,7 @@ export default {
 
   .box-pos-a {
     top: -64vh;
+    transform: translateX(12%);
   }
 
   .intro-content {
