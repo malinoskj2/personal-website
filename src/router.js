@@ -5,7 +5,7 @@ import Router from 'vue-router';
 const BaseView = () => import('@/views/BaseView.vue');
 
 // Sub-Views
-const ProjectTiles = () => import('@/components/ProjectTiles.vue');
+const ProjectList = () => import('@/components/ProjectList.vue');
 const JNav = () => import('@/components/JNav.vue');
 const JFooter = () => import('@/components/JFooter.vue');
 const IntroText = () => import('@/components/IntroText.vue');
@@ -23,8 +23,8 @@ const root = {
       components: {
         nav: JNav,
         'pre-content': IntroText,
-        'left-content': ProjectTiles,
-        'right-content': ProjectTiles,
+        'left-content': ProjectList,
+        'right-content': ProjectList,
         footer: JFooter,
       },
     },
