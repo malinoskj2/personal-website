@@ -1,35 +1,27 @@
-/* eslint-disable object-property-newline */
 import Vue from 'vue';
 import Router from 'vue-router';
-import store from './store';
 
 // Views
 const BaseView = () => import('@/views/BaseView.vue');
-const NavLess = () => import('@/views/NavLess.vue');
 
-const ProjectsPage = () => import('@/views/ProjectsPage.vue');
-const HomePage = () => import('@/views/HomePage.vue');
 // Sub-Views
-const UnderConstruction = () => import('@/components/UnderConstruction.vue');
 const ProjectTiles = () => import('@/components/ProjectTiles.vue');
 const JNav = () => import('@/components/JNav.vue');
-const InteractiveHeader = () => import('@/components/InteractiveHeader.vue');
 const JFooter = () => import('@/components/JFooter.vue');
-const JShapes = () => import('@/components/JShapes.vue');
-const TagGroup = () => import('@/components/TagGroup.vue');
 const IntroText = () => import('@/components/IntroText.vue');
-const HighlightBox = () => import('@/components/HighlightBox.vue');
+
 
 Vue.use(Router);
 
 const root = {
-  path: '/', component: BaseView,
+  path: '/',
+  component: BaseView,
   children: [
     {
-      path: '', name: 'home',
+      path: '',
+      name: 'home',
       components: {
         nav: JNav,
-        'highlight-box': HighlightBox,
         'pre-content': IntroText,
         'left-content': ProjectTiles,
         'right-content': ProjectTiles,
@@ -40,7 +32,8 @@ const root = {
 };
 
 const projects = {
-  path: '/projects', component: BaseView,
+  path: '/projects',
+  component: BaseView,
 
   props: {
     groupTitle: 'Languages',
@@ -51,8 +44,6 @@ const projects = {
       name: 'projects',
       components: {
         nav: JNav,
-        'left-content': ProjectTiles,
-        'right-content': TagGroup,
         footer: JFooter,
       },
     },
