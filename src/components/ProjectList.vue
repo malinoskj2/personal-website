@@ -1,8 +1,9 @@
 <template>
 
-              <div  class="column">
+              <div  class="column translate-content-mob">
                 <div id="list-title">
-                  <h1><strong>{{projectListTitle}}</strong>
+                  <h1>
+                    <strong>{{projectListTitle}}</strong>
                   </h1>
                   <div class="border-dummy"></div>
                 </div>
@@ -100,6 +101,14 @@ export default {
     }
     100% {
       transform:scaleX(.5) scaleY(2);
+    }
+  }
+
+
+  @media only screen
+  and (min-width: 769px) and (max-width: 1024px)  {
+    .translate-content-mob{
+      transform: translateX(20%);
     }
   }
 </style>

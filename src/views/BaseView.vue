@@ -212,11 +212,4 @@ export default {
     }
   }
 
-  @media only screen
-  and (min-width: 769px) and (max-width: 1024px)  {
-    .left-content-mob{
-      transform: translateX(20%);
-    }
-  }
-
 </style>
