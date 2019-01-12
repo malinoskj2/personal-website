@@ -7,8 +7,6 @@
                   <div class="border-dummy"></div>
                 </div>
 
-
-                <sequential-entrance animation="fadeInUp" delay="200">
                 <div class="j-project"
                      v-for="(project) in projectList"
                      :key="project.name" >
@@ -18,7 +16,6 @@
                         :projectInfo="project"/>
 
               </div>
-              </sequential-entrance>
               </div>
 </template>
 

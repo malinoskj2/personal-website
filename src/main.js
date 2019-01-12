@@ -2,10 +2,6 @@ import Vue from 'vue';
 
 // plugins
 import VueTyperPlugin from 'vue-typer';
-import SequentialEntrance from 'vue-sequential-entrance';
-
-// css
-import 'vue-sequential-entrance/vue-sequential-entrance.css';
 
 // vue stuff
 import App from './App.vue';
@@ -14,7 +10,6 @@ import router from './router';
 
 // use components from plugins
 Vue.use(VueTyperPlugin);
-Vue.use(SequentialEntrance);
 
 Vue.config.productionTip = false;
 
