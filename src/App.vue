@@ -6,6 +6,9 @@
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Karla|Lato:400,700" rel="stylesheet">
+
+
     <transition :name="routeTransition" mode="out-in">
       <router-view/>
     </transition>
@@ -42,9 +45,6 @@ export default {
 };
 </script>
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Karla:400,700');
-  @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
-  @import url('https://fonts.googleapis.com/css?family=Patua+One');
   @import '../node_modules/bulma/css/bulma.css';
 
   * {
