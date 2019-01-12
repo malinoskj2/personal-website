@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default-member,no-unused-vars,no-use-before-define,max-len,arrow-body-style */
 import Vue from 'vue';
 import Vuex from 'vuex';
 import initApi from '@/client/client';

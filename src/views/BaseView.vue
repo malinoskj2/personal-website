@@ -1,4 +1,3 @@
-/* eslint-disable*/
 <template>
   <div class="base-view"
        :class="{ 'view-a': boxPosA, 'view-b': !boxPosA }" >
@@ -73,10 +72,6 @@
 </template>
 
 <script>
-/* eslint-disable no-undef */
-
-// @ is an alias to /src
-
 export default {
   name: 'BaseView',
   data() {
