@@ -3,7 +3,7 @@
 
               <div  class="column is-4-fullhd is-8-desktop">
                 <div id="list-title">
-                  <h1><strong>Everything</strong>
+                  <h1><strong>{{projectListTitle}}</strong>
                   </h1>
                   <div class="border-dummy"></div>
                 </div>
@@ -37,7 +37,20 @@ export default {
     ProjectDescripBox,
   },
   props: {
-    projectList: Array,
+    projectList: {
+      type: Array,
+      required: true,
+      default: () => [{
+        name: 'noProjectsGiven',
+        description: 'did not receive project prop',
+        html_url: '',
+      }],
+    },
+    projectListTitle: {
+      type: String,
+      required: true,
+      default: 'no name given',
+    },
   },
   data() {
     return {

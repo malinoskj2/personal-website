@@ -38,18 +38,21 @@
       <div class="container">
         <div ref="homePageRoot" class="home-page">
 
-
           <div class="page-content section">
             <div  class="columns is-centered"
                   :style="{'min-height': dynamicMin +'px'}"
                   ref="projectList">
 
               <router-view name="left-content"
-                          :projectList="projectsFiltered"></router-view>
+                          :projectList="projectsHighlights"
+                           projectListTitle="Projects"
+                          ></router-view>
 
               <div class="column is-3 is-offset-1">
                   <router-view name="right-content"
                                :groupTitle="groupTitle"
+                               :projectList="projectsFiltered"
+                               projectListTitle="Everything"
                                :tagsWithState="tagsWithState"
                                @tag-click="updateActiveTags"/>
               </div>
@@ -104,6 +107,9 @@ export default {
     },
     projectsFiltered() {
       return this.$store.getters.getProjectsFiltered;
+    },
+    projectsHighlights() {
+      return this.$store.getters.getProjectsHighlights;
     },
     introTextContent() {
       return this.$store.getters.getIntroTextContent;

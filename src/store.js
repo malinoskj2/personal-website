@@ -23,6 +23,7 @@ export default new Vuex.Store({
     ),
     activeTags: [],
     introTextContent: process.env.VUE_APP_INTRO_TEXT,
+    highlights: ['prompt_j2'],
   },
   mutations: {
     // link contains the website name + url
@@ -73,6 +74,18 @@ export default new Vuex.Store({
         const tagsLow = tags.map(tag => tag.toLowerCase());
         return _.difference(tagsLow, languagesLow).length === 0;
       });
+    },
+    getProjectsHighlights(state, getters) {
+      const tags = state.activeTags;
+      const { highlights } = state;
+
+      return state.projects.filter((project) => {
+        const languagesLow = Object.entries(project.languages)
+          .map(lang => lang[0].toLowerCase());
+        const tagsLow = tags.map(tag => tag.toLowerCase());
+        return _.difference(tagsLow, languagesLow).length === 0;
+      })
+        .filter(project => highlights.includes(project.name));
     },
     getAllTags(state, getters) {
       const allTags = state.projects
