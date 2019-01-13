@@ -87,8 +87,10 @@ export default new Vuex.Store({
         .filter(project => highlights.includes(project.name));
     },
     getAllTags(state, getters) {
-      const allTags = state.projects
-        .flatMap(project => Object.entries(project.languages).map(lang => lang[0]));
+      const allTags = _.flatMap(state.projects, project =>
+        // eslint-disable-next-line implicit-arrow-linebreak
+        Object.entries(project.languages).map(lang => lang[0]));
+
 
       return Array.from(new Set(allTags));
     },
