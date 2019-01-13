@@ -2,13 +2,13 @@
   "name": "site-new2",
   "version": "0.1.0",
   "private": true,
+  "author": "Jesse Malinosky",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
   },
-  "author": "Jesse Malinosky",
-  "license": "BSD-2-Clause",
   "dependencies": {
     "bulma": "^0.7.2",
     "dayjs": "^1.7.8",
@@ -21,10 +21,13 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-eslint": "^3.2.0",
+    "@vue/cli-plugin-unit-mocha": "^3.3.0",
     "@vue/cli-service": "^3.2.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
     "@wasm-tool/wasm-pack-plugin": "^0.2.0",
     "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
     "lint-staged": "^7.2.2",
@@ -35,6 +38,7 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "license": "BSD-2-Clause",
   "lint-staged": {
     "*.js": [
       "vue-cli-service lint",
