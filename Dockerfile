@@ -46,6 +46,6 @@ RUN wasm-opt -Os -o "/build/source/dist/$(ls /build/source/dist | grep ".*wasm")
 
 
 # Setup webserver
-FROM nginx
-COPY --from=builder /build/source/dist /usr/share/nginx/html
+FROM nginx:1.14
+COPY --from=builder /build/source/dist  /usr/share/nginx/html
 EXPOSE 80
