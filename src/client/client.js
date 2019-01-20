@@ -1,6 +1,6 @@
 const requests = [
-  { name: 'repos', path: '/repos', method: 'GET' },
-  { name: 'commits', path: '/commits', method: 'GET' },
+  { name: 'repos', path: '/github/repos', method: 'GET' },
+  { name: 'commits', path: '/github/commits', method: 'GET' },
   { name: 'statuses', path: '/statuses', method: 'GET' },
 ];
 
