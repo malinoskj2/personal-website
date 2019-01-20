@@ -13,14 +13,11 @@ function initLinks(siteNameList, siteUrlList, delimiter = ',') {
 export default new Vuex.Store({
   state: {
     api: null,
-    events: [],
-    eventsBundled: [],
     projects: [],
     links: initLinks(
       process.env.VUE_APP_NAV_WEBSITES,
       process.env.VUE_APP_NAV_LINKS,
     ),
-    activeTags: [],
     introTextContent: process.env.VUE_APP_INTRO_TEXT,
     highlights: ['prompt_j2'],
   },
@@ -33,21 +30,8 @@ export default new Vuex.Store({
       };
       state.links.push(weblink);
     },
-    setEvents(state, payload) {
-      state.events = payload.events;
-    },
-    setBundled(state, payload) {
-      state.eventsBundled = payload.bundled;
-    },
     setProjects(state, payload) {
       state.projects = payload.projects;
-    },
-    updateActiveTags(state, payload) {
-      if (state.activeTags.includes(payload.name)) {
-        state.activeTags = state.activeTags.filter(tagName => tagName !== payload.name);
-      } else {
-        state.activeTags.push(payload.name);
-      }
     },
     setApi(state, payload) {
       state.api = payload.api;
@@ -55,53 +39,12 @@ export default new Vuex.Store({
   },
   getters: {
     getLinks: state => state.links,
-    getEvents2(state) {
-      return state.events;
-    },
-    getEventsBundled(state, getters) {
-      return state.eventsBundled;
-    },
     getProjects(state, getters) {
       return state.projects;
     },
-    // eslint-disable-next-line arrow-body-style
-    getProjectsFiltered(state, getters) {
-      const tags = state.activeTags;
-      return state.projects.filter((project) => {
-        const languagesLow = Object.entries(project.languages)
-          .map(lang => lang[0].toLowerCase());
-        const tagsLow = tags.map(tag => tag.toLowerCase());
-        return _.difference(tagsLow, languagesLow).length === 0;
-      });
-    },
     getProjectsHighlights(state, getters) {
-      const tags = state.activeTags;
       const { highlights } = state;
-
-      return state.projects.filter((project) => {
-        const languagesLow = Object.entries(project.languages)
-          .map(lang => lang[0].toLowerCase());
-        const tagsLow = tags.map(tag => tag.toLowerCase());
-        return _.difference(tagsLow, languagesLow).length === 0;
-      })
-        .filter(project => highlights.includes(project.name));
-    },
-    getAllTags(state, getters) {
-      const allTags = _.flatMap(state.projects, project =>
-        // eslint-disable-next-line implicit-arrow-linebreak
-        Object.entries(project.languages).map(lang => lang[0]));
-
-
-      return Array.from(new Set(allTags));
-    },
-    getTagsWithState(state, getters) {
-      return getters.getAllTags.map((tag) => {
-        const isActive = state.activeTags.includes(tag);
-        return {
-          name: tag,
-          isActive,
-        };
-      });
+      return state.projects.filter(project => highlights.includes(project.name));
     },
     getIntroTextContent(state) {
       return state.introTextContent;

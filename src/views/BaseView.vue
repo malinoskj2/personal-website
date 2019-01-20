@@ -102,7 +102,7 @@ export default {
       return this.$store.getters.getTagsWithState;
     },
     projectsFiltered() {
-      return this.$store.getters.getProjectsFiltered;
+      return this.$store.getters.getProjects;
     },
     projectsHighlights() {
       return this.$store.getters.getProjectsHighlights;
